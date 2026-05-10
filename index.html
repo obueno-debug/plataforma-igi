@@ -17,6 +17,7 @@ body{font-family:system-ui,sans-serif;background:#f0eff5;color:#1a1a1a;font-size
 .card{background:#fff;border:1px solid #eee;border-radius:10px;padding:14px 16px;margin-bottom:12px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .kpi{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px;text-align:center}
 .kpi-lbl{font-size:10px;color:#888;margin-bottom:3px}
@@ -44,16 +45,15 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 .eje-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:4px}
 .eje-row{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;font-size:12px}
 .modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;padding:12px}
-.modal{background:#fff;border-radius:14px;width:100%;max-width:700px;max-height:90vh;overflow:auto;padding:1.5rem}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:720px;max-height:90vh;overflow:auto;padding:1.5rem}
 .sync{font-size:11px;padding:2px 8px;border-radius:10px}
 .sync-ok{background:#e8f5e9;color:#1a5e20}
 .sync-pend{background:#fff8e1;color:#7c4a00}
 .sync-err{background:#ffebee;color:#8b0000}
 .alert-item{background:#ffebee;border:1px solid #ffcdd2;border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .plan-item{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-/* VISITA */
 .visita-card{background:#fff;border:1px solid #e0dff8;border-radius:10px;padding:14px;margin-bottom:10px}
-.visita-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 14px;background:#f5f4fb;border-radius:8px;margin-bottom:0}
+.visita-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 14px;background:#f5f4fb;border-radius:8px}
 .visita-header:hover{background:#eeedfc}
 .visita-body{padding-top:12px}
 .seccion{background:#f9f9ff;border-radius:8px;padding:12px;margin-bottom:10px;border-left:3px solid #534AB7}
@@ -66,18 +66,24 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 .sec-title-amarilla{color:#7c4a00}
 .check-item{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px}
 .check-item input[type=checkbox]{width:16px;height:16px;cursor:pointer;flex-shrink:0}
-.historial-item{background:#f5f4fb;border-radius:6px;padding:8px 10px;margin-bottom:6px;font-size:12px;cursor:pointer}
-.historial-item:hover{background:#eeedfc}
-.historial-fecha{font-weight:500;color:#534AB7;font-size:11px}
-.compromiso-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:6px;margin-bottom:6px;align-items:center}
-.estado-btn{padding:3px 8px;border-radius:12px;border:none;cursor:pointer;font-size:11px;font-weight:500}
 .ritual-box{background:#fffdf0;border:1px solid #f0e68c;border-radius:8px;padding:12px;margin-bottom:10px}
 .ritual-num{width:24px;height:24px;border-radius:50%;background:#534AB7;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;margin-right:6px;flex-shrink:0}
-@media(max-width:600px){.grid2,.grid3,.grid5{grid-template-columns:1fr 1fr}.eje-grid{grid-template-columns:1fr}.compromiso-row{grid-template-columns:1fr}}
+.compromiso-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:6px;margin-bottom:6px;align-items:center}
+/* DIRECTOR ESTRATÉGICO */
+.informe-section{background:#fff;border:1px solid #e0dff8;border-radius:10px;padding:16px;margin-bottom:14px}
+.informe-title{font-size:14px;font-weight:600;color:#1a1060;margin-bottom:12px;display:flex;align-items:center;gap:8px;border-bottom:2px solid #EEEDFE;padding-bottom:8px}
+.zona-card{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:12px;margin-bottom:8px}
+.zona-card-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.retro-box{background:#f0f4ff;border:1px solid #c7d7fb;border-radius:8px;padding:12px;margin-top:8px}
+.agenda-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f0f0f0}
+.agenda-num{width:24px;height:24px;border-radius:50%;background:#1a1060;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px}
+.cadencia-card{border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid}
+.ia-loading{display:flex;align-items:center;gap:10px;padding:1.5rem;background:#f5f4fb;border-radius:8px;color:#534AB7;font-size:13px}
+.semaforo-bar{height:8px;border-radius:4px;margin-top:4px;overflow:hidden;display:flex}
+@media(max-width:600px){.grid2,.grid3,.grid4,.grid5{grid-template-columns:1fr 1fr}.eje-grid{grid-template-columns:1fr}.compromiso-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div class="nav">
   <div class="nav-top">
     <div class="nav-title">📊 Plataforma IGI · Ecuador</div>
@@ -98,29 +104,26 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
     <button class="nav-btn" id="btn-l10" onclick="goVista('lider',10)">Ivan D. Sanchez</button>
   </div>
 </div>
-
 <div class="main" id="app"></div>
 
-<div id="modal-diag" class="modal-ov" style="display:none">
+<!-- MODAL IA -->
+<div id="modal-ia" class="modal-ov" style="display:none">
   <div class="modal">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <div><div style="font-size:15px;font-weight:500;color:#534AB7">Diagnóstico IA</div><div id="modal-sub" style="font-size:12px;color:#888"></div></div>
-      <button onclick="document.getElementById('modal-diag').style.display='none'" style="border:none;background:none;font-size:22px;cursor:pointer;color:#888">✕</button>
+      <div><div style="font-size:15px;font-weight:500;color:#1a1060" id="modal-ia-title">Análisis IA</div><div id="modal-ia-sub" style="font-size:12px;color:#888"></div></div>
+      <button onclick="document.getElementById('modal-ia').style.display='none'" style="border:none;background:none;font-size:22px;cursor:pointer;color:#888">✕</button>
     </div>
-    <div id="modal-body" style="font-size:13px;line-height:1.75;white-space:pre-wrap;color:#222"></div>
+    <div id="modal-ia-body" style="font-size:13px;line-height:1.75;white-space:pre-wrap;color:#222"></div>
   </div>
 </div>
 
 <script>
 // ══════════════════════════════════════════════════════
-// CONFIGURACIÓN JSONBin
+// CONFIGURACIÓN
 // ══════════════════════════════════════════════════════
 const JSONBIN_API_KEY = "$2a$10$KGYkOVGllAacjYcGcQTW/uxeTJinwORe5bRNVGe6IMaN4z8ED2Xnu";
 const JSONBIN_BIN_ID  = "6a010195c0954111d80497df";
 
-// ══════════════════════════════════════════════════════
-// DATOS MAESTROS
-// ══════════════════════════════════════════════════════
 const LIDERES=[
   {id:1,n:"Harol Bedoya",z:"Zona Norte"},
   {id:2,n:"Oswaldo Rincon",z:"Zona Sur"},
@@ -157,102 +160,59 @@ const EJE3G=[
 const EJE3=EJE3G.flatMap(g=>g.v);
 const TV=EJE1.length+EJE2.length+EJE3.length;
 
-// ══════════════════════════════════════════════════════
-// ESTADO
-// ══════════════════════════════════════════════════════
 let DB={};
-let vista="director",lid=1,agI=0,tabL="eval",tabD="zonas";
+let vista="director",lid=1,agI=0,tabL="eval",tabD="pulso";
 let menuOpen=false,dbSaveTimer=null;
 
 function mkAg(c,n){return{cod:c,nom:n,admin:"",eje1:Array(EJE1.length).fill(0),eje2:Array(EJE2.length).fill(0),eje3:Array(EJE3.length).fill(0),obs:"",accion:"",estrategia:"",fecha:""};}
-function mkVisita(){
-  return{
-    id:Date.now(),fecha:new Date().toISOString().slice(0,10),
-    hora_ini:"",hora_fin:"",
-    // Antes
-    objetivo:"",
-    // Durante - Qué pasa / Desafío
-    que_pasa:"",desafio:"",
-    // Checklist
-    check:{
-      visito:false,reviso_resultados:false,ejecuto_activacion:false,
-      feedback:false,reconocio:false,detecto_brecha:false,
-      dejo_tareas:false,pidio_evidencia:false,seguimiento_ant:false
-    },
-    // Decisión
-    decision:"",
-    // Acciones acordadas
-    acciones:[{tema:"",decision:"",accion:"",responsable:"",fecha:"",estado:"Pendiente"}],
-    // Reflexión
-    reflexion:"",
-    // Compromisos
-    compromisos:[{compromiso:"",accion:"",estado:"Pendiente",evidencia:""}],
-    // Ritual seguimiento
-    ritual:{semana:"",dijimos:"",se_hizo:"",aprendimos:"",acuerdos:""},
-    abierta:true
-  };
-}
-function mkZona(id){return{ags:AGENCIAS[id].map(([c,n])=>mkAg(c,n)),plan:[],obs:"",mes:new Date().toISOString().slice(0,7),visitas:{}};}
+function mkVisita(){return{id:Date.now(),fecha:new Date().toISOString().slice(0,10),hora_ini:"",hora_fin:"",objetivo:"",que_pasa:"",desafio:"",check:{visito:false,reviso_resultados:false,ejecuto_activacion:false,feedback:false,reconocio:false,detecto_brecha:false,dejo_tareas:false,pidio_evidencia:false,seguimiento_ant:false},decision:"",acciones:[{tema:"",decision:"",accion:"",responsable:"",fecha:"",estado:"Pendiente"}],reflexion:"",compromisos:[{compromiso:"",accion:"",estado:"Pendiente",evidencia:""}],ritual:{semana:"",dijimos:"",se_hizo:"",aprendimos:"",acuerdos:""},abierta:true};}
+function mkZona(id){return{ags:AGENCIAS[id].map(([c,n])=>mkAg(c,n)),plan:[],obs:"",mes:new Date().toISOString().slice(0,7),visitas:{},retro_director:{},agenda_notas:""};}
+function mkRetro(){return{fecha:new Date().toISOString().slice(0,10),fortalezas:"",oportunidades:"",compromisos_dir:"",meta_igi:"",estado:"Pendiente"};}
 function initDB(){const d={};LIDERES.forEach(l=>{d[l.id]=mkZona(l.id);});return d;}
 
-// ══════════════════════════════════════════════════════
-// JSONBIN
-// ══════════════════════════════════════════════════════
+// ══ JSONBIN ══
 function cfgOk(){return JSONBIN_API_KEY&&!JSONBIN_API_KEY.includes("PEGA")&&JSONBIN_BIN_ID&&!JSONBIN_BIN_ID.includes("PEGA");}
 async function dbLoad(){
   if(!cfgOk()){try{const s=localStorage.getItem("igi_db");if(s)DB=JSON.parse(s);}catch{}LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});return;}
   setSy("pend");
-  try{
-    const r=await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`,{headers:{"X-Master-Key":JSONBIN_API_KEY,"X-Bin-Meta":"false"}});
-    const j=await r.json();
-    if(j&&typeof j==="object"){DB=j;LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});}
-    setSy("ok");
-  }catch{setSy("err");}
+  try{const r=await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`,{headers:{"X-Master-Key":JSONBIN_API_KEY,"X-Bin-Meta":"false"}});const j=await r.json();if(j&&typeof j==="object"){DB=j;LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});}setSy("ok");}catch{setSy("err");}
 }
 async function dbSave(){
   if(!cfgOk()){try{localStorage.setItem("igi_db",JSON.stringify(DB));}catch{}return;}
-  setSy("pend");
-  clearTimeout(dbSaveTimer);
-  dbSaveTimer=setTimeout(async()=>{
-    try{
-      await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,{method:"PUT",headers:{"Content-Type":"application/json","X-Master-Key":JSONBIN_API_KEY},body:JSON.stringify(DB)});
-      setSy("ok");
-    }catch{setSy("err");}
-  },1500);
+  setSy("pend");clearTimeout(dbSaveTimer);
+  dbSaveTimer=setTimeout(async()=>{try{await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,{method:"PUT",headers:{"Content-Type":"application/json","X-Master-Key":JSONBIN_API_KEY},body:JSON.stringify(DB)});setSy("ok");}catch{setSy("err");}},1500);
 }
 
-// ══════════════════════════════════════════════════════
-// CÁLCULOS
-// ══════════════════════════════════════════════════════
+// ══ CÁLCULOS ══
 const pr=a=>{const v=a.filter(x=>x>0);return v.length?+(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2):0;};
 const igi=(e1,e2,e3)=>(e1>0&&e2>0&&e3>0)?+(e1*.4+e2*.25+e3*.35).toFixed(2):0;
 function nv(v){if(!v)return{l:"Sin datos",c:"#888",bg:"#f5f5f5",s:"⬜"};if(v>=4)return{l:"Fuerte",c:"#1a5e20",bg:"#e8f5e9",s:"🟢"};if(v>=2.5)return{l:"Media",c:"#7c4a00",bg:"#fff8e1",s:"🟡"};return{l:"Débil",c:"#8b0000",bg:"#ffebee",s:"🔴"};}
 function agSt(ag){const p1=pr(ag.eje1),p2=pr(ag.eje2),p3=pr(ag.eje3),t=igi(p1,p2,p3);return{p1,p2,p3,t,nv:nv(t)};}
 function zonaSt(id){
-  const d=DB[id];if(!d)return{avg:0,f:0,m:0,db:0,comp:0,e1:0,e2:0,e3:0};
+  const d=DB[id];if(!d)return{avg:0,f:0,m:0,db:0,comp:0,e1:0,e2:0,e3:0,visitas_total:0,acciones_pend:0};
   const ss=d.ags.map(a=>agSt(a));const ig=ss.map(s=>s.t).filter(x=>x>0);
   const avg=ig.length?+(ig.reduce((a,b)=>a+b,0)/ig.length).toFixed(2):0;
   const done=d.ags.reduce((acc,a)=>acc+a.eje1.filter(x=>x>0).length+a.eje2.filter(x=>x>0).length+a.eje3.filter(x=>x>0).length,0);
   const e1v=ss.map(s=>s.p1).filter(x=>x>0),e2v=ss.map(s=>s.p2).filter(x=>x>0),e3v=ss.map(s=>s.p3).filter(x=>x>0);
+  const vt=d.visitas?Object.values(d.visitas).reduce((a,v)=>a+v.length,0):0;
+  const ap=d.visitas?Object.values(d.visitas).reduce((a,vs)=>a+vs.reduce((b,v)=>b+v.acciones.filter(ac=>ac.estado==="Pendiente").length,0),0):0;
   return{avg,f:ig.filter(x=>x>=4).length,m:ig.filter(x=>x>=2.5&&x<4).length,db:ig.filter(x=>x<2.5&&x>0).length,
     comp:Math.round((done/(TV*d.ags.length))*100),
     e1:e1v.length?+(e1v.reduce((a,b)=>a+b,0)/e1v.length).toFixed(2):0,
     e2:e2v.length?+(e2v.reduce((a,b)=>a+b,0)/e2v.length).toFixed(2):0,
-    e3:e3v.length?+(e3v.reduce((a,b)=>a+b,0)/e3v.length).toFixed(2):0};
+    e3:e3v.length?+(e3v.reduce((a,b)=>a+b,0)/e3v.length).toFixed(2):0,
+    visitas_total:vt,acciones_pend:ap};
 }
 
-// ══════════════════════════════════════════════════════
-// UI HELPERS
-// ══════════════════════════════════════════════════════
+// ══ HELPERS UI ══
 function setSy(s){const el=document.getElementById("sync-badge");if(!el)return;if(s==="ok"){el.className="sync sync-ok";el.textContent="✓ Guardado";}else if(s==="pend"){el.className="sync sync-pend";el.textContent="⏳ Guardando...";}else{el.className="sync sync-err";el.textContent="⚠ Sin conexión";}}
 const bdg=v=>{const n=nv(v);return`<span class="badge" style="background:${n.bg};color:${n.c}">${n.s} ${n.l}</span>`;};
 const mbar=(v,mx=5)=>{const p=(v/mx)*100,n=nv(v);return`<div class="minibar"><div class="minibar-fill" style="width:${p}%;background:${n.c}"></div></div>`;};
 const cv=v=>`<span style="background:${nv(v).bg};color:${nv(v).c};padding:1px 7px;border-radius:5px">${v||"—"}</span>`;
 function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function semFill(f,m,d,t){let h=`<div class="semaforo-bar"><div style="flex:${f||0};background:#e8f5e9"></div><div style="flex:${m||0};background:#fff8e1"></div><div style="flex:${d||0};background:#ffebee"></div>`;if(f+m+d<t)h+=`<div style="flex:${t-f-m-d};background:#f0f0f0"></div>`;h+=`</div>`;return h;}
 
-// ══════════════════════════════════════════════════════
-// NAVEGACIÓN
-// ══════════════════════════════════════════════════════
+// ══ NAVEGACIÓN ══
 function toggleMenu(){menuOpen=!menuOpen;document.getElementById("nav-btns").style.display=menuOpen?"flex":"none";}
 async function goVista(v,id){
   vista=v;if(id){lid=id;agI=0;tabL="eval";}
@@ -265,9 +225,7 @@ function setTabD(t){tabD=t;render();}
 function setTabL(t){tabL=t;render();}
 function setAg(i){agI=i;render();}
 
-// ══════════════════════════════════════════════════════
-// MUTACIONES IGI
-// ══════════════════════════════════════════════════════
+// ══ MUTACIONES IGI ══
 function updEje(eje,i,v){DB[lid].ags[agI][eje][i]=v;dbSave();renderIGIBox();}
 function updAg(f,v){DB[lid].ags[agI][f]=v;dbSave();}
 function updZona(f,v){DB[lid][f]=v;dbSave();}
@@ -275,23 +233,10 @@ function addPlan(){DB[lid].plan.push({obj:"",accion:"",resp:"",fecha:"",av:0,est
 function updPlan(i,f,v){DB[lid].plan[i][f]=f==="av"?+v:v;dbSave();}
 function delPlan(i){DB[lid].plan.splice(i,1);dbSave();render();}
 
-// ══════════════════════════════════════════════════════
-// MUTACIONES VISITAS
-// ══════════════════════════════════════════════════════
+// ══ MUTACIONES VISITAS ══
 function getVisitas(agCod){if(!DB[lid].visitas)DB[lid].visitas={};if(!DB[lid].visitas[agCod])DB[lid].visitas[agCod]=[];return DB[lid].visitas[agCod];}
-function addVisita(){
-  const ag=DB[lid].ags[agI];
-  if(!DB[lid].visitas)DB[lid].visitas={};
-  if(!DB[lid].visitas[ag.cod])DB[lid].visitas[ag.cod]=[];
-  DB[lid].visitas[ag.cod].unshift(mkVisita());
-  dbSave();render();
-}
-function updVisita(agCod,vi,field,val){
-  const visitas=getVisitas(agCod);
-  if(field.includes(".")){const[a,b]=field.split(".");visitas[vi][a][b]=val;}
-  else visitas[vi][field]=val;
-  dbSave();
-}
+function addVisita(){const ag=DB[lid].ags[agI];if(!DB[lid].visitas)DB[lid].visitas={};if(!DB[lid].visitas[ag.cod])DB[lid].visitas[ag.cod]=[];DB[lid].visitas[ag.cod].unshift(mkVisita());dbSave();render();}
+function updVisita(agCod,vi,field,val){const vs=getVisitas(agCod);if(field.includes(".")){const[a,b]=field.split(".");vs[vi][a][b]=val;}else vs[vi][field]=val;dbSave();}
 function updCheck(agCod,vi,key,val){getVisitas(agCod)[vi].check[key]=val;dbSave();}
 function addAccionV(agCod,vi){getVisitas(agCod)[vi].acciones.push({tema:"",decision:"",accion:"",responsable:"",fecha:"",estado:"Pendiente"});dbSave();render();}
 function updAccionV(agCod,vi,ai,f,v){getVisitas(agCod)[vi].acciones[ai][f]=v;dbSave();}
@@ -299,16 +244,34 @@ function delAccionV(agCod,vi,ai){getVisitas(agCod)[vi].acciones.splice(ai,1);dbS
 function addCompr(agCod,vi){getVisitas(agCod)[vi].compromisos.push({compromiso:"",accion:"",estado:"Pendiente",evidencia:""});dbSave();render();}
 function updCompr(agCod,vi,ci,f,v){getVisitas(agCod)[vi].compromisos[ci][f]=v;dbSave();}
 function delCompr(agCod,vi,ci){getVisitas(agCod)[vi].compromisos.splice(ci,1);dbSave();render();}
-function toggleVisita(agCod,vi){const v=getVisitas(agCod);v[vi].abierta=!v[vi].abierta;render();}
+function toggleVisita(agCod,vi){getVisitas(agCod)[vi].abierta=!getVisitas(agCod)[vi].abierta;render();}
 function delVisita(agCod,vi){if(!confirm("¿Eliminar esta visita?"))return;getVisitas(agCod).splice(vi,1);dbSave();render();}
 function updRitual(agCod,vi,f,v){getVisitas(agCod)[vi].ritual[f]=v;dbSave();}
 
-// ══════════════════════════════════════════════════════
-// RENDER PRINCIPAL
-// ══════════════════════════════════════════════════════
+// ══ MUTACIONES DIRECTOR ══
+function updRetro(lid_r,field,val){
+  if(!DB[lid_r].retro_director)DB[lid_r].retro_director={};
+  if(!DB[lid_r].retro_director.actual)DB[lid_r].retro_director.actual=mkRetro();
+  DB[lid_r].retro_director.actual[field]=val;
+  dbSave();
+}
+function guardarRetro(lid_r){
+  if(!DB[lid_r].retro_director)DB[lid_r].retro_director={};
+  if(!DB[lid_r].retro_director.historial)DB[lid_r].retro_director.historial=[];
+  const actual=DB[lid_r].retro_director.actual||mkRetro();
+  actual.fecha_guardado=new Date().toISOString().slice(0,10);
+  DB[lid_r].retro_director.historial.unshift({...actual});
+  DB[lid_r].retro_director.actual=mkRetro();
+  dbSave();render();
+  alert("Retroalimentación guardada en el historial ✓");
+}
+
+// ══ RENDER ══
 function render(){vista==="director"?renderDir():renderLider();}
 
-// ── DIRECTOR ─────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// DIRECTOR
+// ═══════════════════════════════════════════════════════
 function renderDir(){
   const allS=LIDERES.map(l=>({...zonaSt(l.id),L:l,nag:AGENCIAS[l.id].length}));
   const igs=allS.map(s=>s.avg).filter(x=>x>0);
@@ -316,111 +279,309 @@ function renderDir(){
   const nvR=nv(igiR);
   const tF=allS.reduce((a,s)=>a+s.f,0),tM=allS.reduce((a,s)=>a+s.m,0),tD=allS.reduce((a,s)=>a+s.db,0);
   const tAg=Object.values(AGENCIAS).reduce((a,z)=>a+z.length,0);
-  let h=`<div class="grid5" style="margin-bottom:12px">
+  const tVis=allS.reduce((a,s)=>a+s.visitas_total,0);
+  const tAcc=allS.reduce((a,s)=>a+s.acciones_pend,0);
+
+  let h=`
+  <div class="grid5" style="margin-bottom:12px">
     <div class="kpi"><div class="kpi-lbl">Total Agencias</div><div class="kpi-val" style="color:#534AB7">${tAg}</div></div>
-    <div class="kpi"><div class="kpi-lbl">Evaluadas</div><div class="kpi-val">${tF+tM+tD}</div></div>
     <div class="kpi"><div class="kpi-lbl">Fuertes 🟢</div><div class="kpi-val" style="color:#1a5e20">${tF}</div></div>
     <div class="kpi"><div class="kpi-lbl">Medias 🟡</div><div class="kpi-val" style="color:#7c4a00">${tM}</div></div>
     <div class="kpi"><div class="kpi-lbl">Débiles 🔴</div><div class="kpi-val" style="color:#8b0000">${tD}</div></div>
+    <div class="kpi"><div class="kpi-lbl">Visitas totales</div><div class="kpi-val" style="color:#534AB7">${tVis}</div></div>
   </div>
   <div class="card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
     <div><div style="font-size:11px;color:#888">IGI Promedio Red Ecuador</div>
     <div style="font-size:28px;font-weight:500;color:${nvR.c}">${nvR.s} ${igiR||"—"}</div></div>
     <div style="flex:1;min-width:100px">${mbar(igiR)}<div style="font-size:10px;color:#999;margin-top:3px">Débil &lt;2.5 · Media 2.5–4 · Fuerte ≥4</div></div>
+    ${tAcc>0?`<div style="background:#fff8e1;border:1px solid #f0d060;border-radius:8px;padding:6px 12px;font-size:12px;color:#7c4a00">⏳ <b>${tAcc}</b> acciones pendientes en la red</div>`:""}
     <button class="btn btn-p btn-sm" onclick="dbLoad().then(render)">↺ Actualizar</button>
   </div>
   <div class="tabs">
-    ${["zonas|Por Zona","ranking|Ranking","alertas|🔴 Alertas","seguimiento|Seguimiento"].map(t=>{const[id,lbl]=t.split("|");return`<button class="tab-btn ${tabD===id?"active":""}" onclick="setTabD('${id}')">${lbl}</button>`;}).join("")}
+    <button class="tab-btn ${tabD==="pulso"?"active":""}" onclick="setTabD('pulso')">⚡ Pulso Semanal</button>
+    <button class="tab-btn ${tabD==="informe"?"active":""}" onclick="setTabD('informe')">📋 Informe Mensual</button>
+    <button class="tab-btn ${tabD==="retro"?"active":""}" onclick="setTabD('retro')">💬 Retroalimentación</button>
+    <button class="tab-btn ${tabD==="agenda"?"active":""}" onclick="setTabD('agenda')">📅 Agenda Reunión</button>
+    <button class="tab-btn ${tabD==="cadencia"?"active":""}" onclick="setTabD('cadencia')">🗓 Cadencia</button>
+    <button class="tab-btn ${tabD==="alertas"?"active":""}" onclick="setTabD('alertas')">🔴 Alertas</button>
   </div>`;
-  if(tabD==="zonas"){
-    h+=`<div style="overflow-x:auto"><table><thead><tr><th>Zona</th><th>Líder</th><th>Ag.</th><th>🟢</th><th>🟡</th><th>🔴</th><th>IGI</th><th>Completitud</th><th>Visitas</th><th>Estado</th><th>IA</th></tr></thead><tbody>`;
-    allS.forEach(s=>{
+
+  // ── PULSO SEMANAL ──
+  if(tabD==="pulso"){
+    h+=`<div class="informe-section">
+      <div class="informe-title">⚡ Pulso Semanal — ${new Date().toLocaleDateString("es-EC",{weekday:"long",year:"numeric",month:"long",day:"numeric"})}
+        <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="genInformeIA('semanal')">Generar análisis IA</button>
+      </div>
+      <div style="overflow-x:auto"><table><thead><tr>
+        <th>Zona</th><th>Líder</th><th>IGI</th><th>🟢</th><th>🟡</th><th>🔴</th><th>Distribución</th><th>Visitas</th><th>Acc. Pend.</th><th>Completitud</th><th>Estado</th>
+      </tr></thead><tbody>`;
+    [...allS].sort((a,b)=>b.avg-a.avg).forEach(s=>{
       const n=nv(s.avg);
-      const totalVisitas=DB[s.L.id]?.visitas?Object.values(DB[s.L.id].visitas).reduce((a,v)=>a+v.length,0):0;
-      h+=`<tr><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td><td style="text-align:center">${s.nag}</td>
+      h+=`<tr>
+        <td><b>${s.L.z}</b></td><td style="color:#555;font-size:11px">${s.L.n}</td>
+        <td><span style="background:${n.bg};color:${n.c};padding:2px 8px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
         <td style="text-align:center;color:#1a5e20;font-weight:500">${s.f}</td>
         <td style="text-align:center;color:#7c4a00;font-weight:500">${s.m}</td>
         <td style="text-align:center;color:#8b0000;font-weight:500">${s.db}</td>
-        <td><span style="background:${n.bg};color:${n.c};padding:2px 8px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
-        <td><div style="display:flex;align-items:center;gap:5px">
-          <div style="height:6px;width:55px;background:#eee;border-radius:3px;overflow:hidden">
-            <div style="height:6px;width:${s.comp}%;background:${s.comp>=80?"#1a5e20":s.comp>=40?"#f57f17":"#c62828"}"></div></div>
-          <span style="font-size:10px;color:#666">${s.comp}%</span></div></td>
-        <td style="text-align:center;color:#534AB7;font-weight:500">${totalVisitas}</td>
+        <td style="min-width:80px">${semFill(s.f,s.m,s.db,s.nag)}</td>
+        <td style="text-align:center;color:#534AB7;font-weight:500">${s.visitas_total}</td>
+        <td style="text-align:center;color:${s.acciones_pend>3?"#8b0000":"#7c4a00"};font-weight:500">${s.acciones_pend}</td>
+        <td>
+          <div style="display:flex;align-items:center;gap:4px">
+            <div style="height:5px;width:50px;background:#eee;border-radius:3px;overflow:hidden"><div style="height:5px;width:${s.comp}%;background:${s.comp>=80?"#1a5e20":s.comp>=40?"#f57f17":"#c62828"}"></div></div>
+            <span style="font-size:10px;color:#666">${s.comp}%</span>
+          </div>
+        </td>
         <td>${bdg(s.avg)}</td>
-        <td><button class="btn btn-p btn-sm" onclick="openDiag(${s.L.id})">IA ↗</button></td>
+      </tr>`;
+    });
+    h+=`</tbody></table></div></div>`;
+
+    // Top 3 mejores y peores
+    const sorted=[...allS].filter(s=>s.avg>0).sort((a,b)=>b.avg-a.avg);
+    h+=`<div class="grid2">
+      <div class="informe-section">
+        <div class="informe-title" style="color:#1a5e20">🏆 Top 3 Zonas esta semana</div>`;
+    sorted.slice(0,3).forEach((s,i)=>{
+      h+=`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:20px">${["🥇","🥈","🥉"][i]}</span>
+        <div style="flex:1"><div style="font-weight:500">${s.L.z}</div><div style="font-size:11px;color:#888">${s.L.n}</div></div>
+        <span style="background:#e8f5e9;color:#1a5e20;padding:2px 10px;border-radius:6px;font-weight:500">${s.avg}</span>
+      </div>`;
+    });
+    h+=`</div><div class="informe-section">
+        <div class="informe-title" style="color:#8b0000">⚠️ Zonas que necesitan atención</div>`;
+    [...sorted].reverse().slice(0,3).forEach(s=>{
+      h+=`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0">
+        <span style="font-size:20px">🔴</span>
+        <div style="flex:1"><div style="font-weight:500">${s.L.z}</div><div style="font-size:11px;color:#888">${s.L.n}</div></div>
+        <span style="background:#ffebee;color:#8b0000;padding:2px 10px;border-radius:6px;font-weight:500">${s.avg}</span>
+      </div>`;
+    });
+    h+=`</div></div>`;
+  }
+
+  // ── INFORME MENSUAL ──
+  if(tabD==="informe"){
+    h+=`<div class="informe-section">
+      <div class="informe-title">📋 Informe Estratégico Mensual
+        <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="genInformeIA('mensual')">Generar informe IA completo</button>
+      </div>
+      <p style="font-size:12px;color:#666;margin-bottom:12px">Análisis profundo de la red. Haz clic en "Generar informe IA" para recibir el informe completo con resumen ejecutivo, análisis por eje, zonas críticas, tendencias y plan de acción.</p>
+      <div class="grid4" style="margin-bottom:16px">`;
+    const allEje1=allS.map(s=>s.e1).filter(x=>x>0);
+    const allEje2=allS.map(s=>s.e2).filter(x=>x>0);
+    const allEje3=allS.map(s=>s.e3).filter(x=>x>0);
+    const avgE1=allEje1.length?+(allEje1.reduce((a,b)=>a+b,0)/allEje1.length).toFixed(2):0;
+    const avgE2=allEje2.length?+(allEje2.reduce((a,b)=>a+b,0)/allEje2.length).toFixed(2):0;
+    const avgE3=allEje3.length?+(allEje3.reduce((a,b)=>a+b,0)/allEje3.length).toFixed(2):0;
+    [{l:"Capacidad (E1)",v:avgE1},{l:"Externas (E2)",v:avgE2},{l:"Tareas (E3)",v:avgE3},{l:"IGI Red",v:parseFloat(igiR)}].forEach(k=>{
+      h+=`<div class="kpi"><div class="kpi-lbl">${k.l}</div><div class="kpi-val" style="color:${nv(k.v).c}">${k.v||"—"}</div>${mbar(k.v)}</div>`;
+    });
+    h+=`</div>
+      <table><thead><tr><th>Zona</th><th>Líder</th><th>E1 Cap.</th><th>E2 Ext.</th><th>E3 Tar.</th><th>IGI</th><th>Visitas</th><th>% Eval.</th><th>Estado</th></tr></thead><tbody>`;
+    [...allS].sort((a,b)=>b.avg-a.avg).forEach(s=>{
+      h+=`<tr>
+        <td><b>${s.L.z}</b></td><td style="color:#555;font-size:11px">${s.L.n}</td>
+        <td>${cv(s.e1)}</td><td>${cv(s.e2)}</td><td>${cv(s.e3)}</td>
+        <td><b style="font-size:13px">${s.avg||"—"}</b></td>
+        <td style="text-align:center">${s.visitas_total}</td>
+        <td style="text-align:center">${s.comp}%</td>
+        <td>${bdg(s.avg)}</td>
       </tr>`;
     });
     h+=`</tbody></table></div>`;
   }
-  if(tabD==="ranking"){
-    h+=`<table><thead><tr><th>#</th><th>Zona</th><th>Líder</th><th>IGI</th><th>E1</th><th>E2</th><th>E3</th><th>🟢</th><th>🔴</th><th>Estado</th></tr></thead><tbody>`;
-    [...allS].sort((a,b)=>b.avg-a.avg).forEach((s,i)=>{
-      const medal=["🥇","🥈","🥉"][i]||"";const n=nv(s.avg);
-      h+=`<tr style="background:${i<3?"#fffde7":""}"><td><b>${medal||i+1}</b></td><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td>
-        <td><span style="background:${n.bg};color:${n.c};padding:2px 10px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
-        <td>${cv(s.e1)}</td><td>${cv(s.e2)}</td><td>${cv(s.e3)}</td>
-        <td style="color:#1a5e20;font-weight:500">${s.f}</td><td style="color:#8b0000;font-weight:500">${s.db}</td><td>${bdg(s.avg)}</td></tr>`;
+
+  // ── RETROALIMENTACIÓN ──
+  if(tabD==="retro"){
+    h+=`<div class="informe-section">
+      <div class="informe-title">💬 Retroalimentación del Director a cada Zona</div>
+      <p style="font-size:12px;color:#666;margin-bottom:12px">Escribe tu retroalimentación para cada líder zonal. Ellos la ven cuando entran a su zona. Queda guardada en el historial.</p>`;
+    LIDERES.forEach(lr=>{
+      const retro=DB[lr.id]?.retro_director?.actual||mkRetro();
+      const historial=DB[lr.id]?.retro_director?.historial||[];
+      const zs=zonaSt(lr.id);const n=nv(zs.avg);
+      h+=`<div class="zona-card">
+        <div class="zona-card-header">
+          <div>
+            <span style="font-weight:500">${lr.z}</span>
+            <span style="font-size:12px;color:#888;margin-left:8px">${lr.n}</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span style="background:${n.bg};color:${n.c};padding:1px 8px;border-radius:6px;font-size:12px">${n.s} IGI ${zs.avg||"—"}</span>
+            ${historial.length?`<span style="font-size:11px;color:#888">${historial.length} retro(s) guardadas</span>`:""}
+          </div>
+        </div>
+        <div class="grid2" style="margin-bottom:6px">
+          <div class="field"><label>✅ Fortalezas que reconozco</label>
+            <textarea rows="2" placeholder="Lo que está haciendo bien..." onchange="updRetro(${lr.id},'fortalezas',this.value)">${esc(retro.fortalezas)}</textarea></div>
+          <div class="field"><label>🎯 Oportunidades de mejora</label>
+            <textarea rows="2" placeholder="Áreas donde debe mejorar..." onchange="updRetro(${lr.id},'oportunidades',this.value)">${esc(retro.oportunidades)}</textarea></div>
+        </div>
+        <div class="grid2" style="margin-bottom:8px">
+          <div class="field"><label>📌 Compromisos que le pido</label>
+            <textarea rows="2" placeholder="Acciones concretas que debe tomar..." onchange="updRetro(${lr.id},'compromisos_dir',this.value)">${esc(retro.compromisos_dir)}</textarea></div>
+          <div class="field"><label>📈 Meta IGI para el próximo mes</label>
+            <input type="text" value="${esc(retro.meta_igi)}" placeholder="Ej: Subir de 3.2 a 3.6" onchange="updRetro(${lr.id},'meta_igi',this.value)"></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn btn-p btn-sm" onclick="guardarRetro(${lr.id})">💾 Guardar retroalimentación</button>
+          <button class="btn btn-sm btn-o" onclick="genRetroIA(${lr.id})">✨ Ayuda IA para escribir retro</button>
+          ${historial.length?`<button class="btn btn-sm" style="background:#f5f5f5;color:#444;border:1px solid #eee" onclick="verHistorialRetro(${lr.id})">📂 Ver historial (${historial.length})</button>`:""}
+        </div>
+      </div>`;
     });
-    h+=`</tbody></table>`;
+    h+=`</div>`;
   }
+
+  // ── AGENDA REUNIÓN ──
+  if(tabD==="agenda"){
+    const semana=`${new Date().toLocaleDateString("es-EC",{day:"numeric",month:"long"})}`;
+    h+=`<div class="informe-section">
+      <div class="informe-title">📅 Agenda Reunión Virtual Semanal
+        <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="genAgendaIA()">Generar agenda IA</button>
+      </div>
+      <div style="background:#f0f4ff;border-radius:8px;padding:12px;margin-bottom:14px;font-size:13px">
+        <b>Semana del ${semana}</b> · Duración sugerida: 45–60 minutos · Participantes: Director + 10 Líderes Zonales
+      </div>`;
+
+    const debiles=LIDERES.filter(l=>zonaSt(l.id).avg>0&&zonaSt(l.id).avg<2.5);
+    const sinEval=LIDERES.filter(l=>zonaSt(l.id).comp<20);
+    const conPend=LIDERES.filter(l=>zonaSt(l.id).acciones_pend>3);
+
+    const agenda=[
+      {t:"00–05 min","titulo":"Apertura y pulso rápido","desc":"Director comparte el IGI promedio de la red y las 3 métricas clave de la semana.","tipo":"director"},
+      {t:"05–20 min","titulo":"Ronda de resultados (cada líder: 1 min)","desc":"Cada líder dice: IGI de su zona, 1 logro y 1 bloqueo. Sin debate todavía.","tipo":"todos"},
+      {t:"20–35 min","titulo":"Profundización en zonas críticas","desc":`Análisis de zonas débiles: ${debiles.length?debiles.map(l=>l.z).join(", "):"Ninguna crítica esta semana ✓"}. El líder explica causa raíz, equipo propone solución.`,"tipo":"critico"},
+      {t:"35–45 min","titulo":"Compromisos de la semana","desc":"Cada líder dice 1 acción concreta que va a completar antes de la próxima reunión. Director las registra.","tipo":"todos"},
+      {t:"45–50 min","titulo":"Reconocimientos y cierre","desc":"Director reconoce al menos 2 zonas o acciones positivas. Confirma fecha y foco de la próxima reunión.","tipo":"director"},
+    ];
+    const colTipo={"director":"#EEEDFE","todos":"#e8f5e9","critico":"#ffebee"};
+    const iconTipo={"director":"👤","todos":"👥","critico":"🔴"};
+    agenda.forEach((a,i)=>{
+      h+=`<div class="agenda-item">
+        <div class="agenda-num">${i+1}</div>
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="font-weight:500">${a.titulo}</span>
+            <span style="font-size:11px;background:${colTipo[a.tipo]};padding:1px 7px;border-radius:10px">${iconTipo[a.tipo]} ${a.t}</span>
+          </div>
+          <div style="font-size:12px;color:#555;margin-top:3px">${a.desc}</div>
+        </div>
+      </div>`;
+    });
+
+    if(sinEval.length){h+=`<div style="background:#fff8e1;border:1px solid #f0d060;border-radius:8px;padding:10px 12px;margin-top:10px;font-size:12px"><b>⚠️ Punto adicional sugerido:</b> Zonas con evaluación incompleta (&lt;20%): ${sinEval.map(l=>l.z).join(", ")} — solicitar al líder fecha de completitud.</div>`;}
+
+    h+=`<div class="field" style="margin-top:14px"><label style="font-size:13px;font-weight:500">📝 Notas de la reunión</label>
+      <textarea rows="4" placeholder="Escribe aquí los puntos importantes, compromisos tomados, decisiones..." onchange="DB['agenda_notas']=this.value;dbSave()">${esc(DB['agenda_notas']||"")}</textarea>
+    </div></div>`;
+  }
+
+  // ── CADENCIA ──
+  if(tabD==="cadencia"){
+    h+=`<div class="informe-section">
+      <div class="informe-title">🗓 Modelo de Cadencia Recomendado</div>
+      <p style="font-size:12px;color:#555;margin-bottom:14px;line-height:1.6">Basado en la estructura de tu red (10 zonas, 101 agencias), este es el ritmo óptimo para que ninguna agencia pase más de 2 semanas sin atención y tú tengas visibilidad total sin reuniones largas.</p>`;
+
+    const cadencias=[
+      {titulo:"Líder Zonal — Rutina semanal",color:"#1a1060",bg:"#EEEDFE",border:"#c7d7fb",items:[
+        {dia:"Lunes",accion:"Revisar IGI de todas sus agencias. Identificar las 2 más críticas de la semana.",icono:"📊"},
+        {dia:"Martes–Miércoles",accion:"Visitar agencias débiles (IGI < 2.5). Registrar visita completa en la plataforma.",icono:"🏪"},
+        {dia:"Jueves",accion:"Visitar agencias medias (IGI 2.5–4). Reforzar acciones en marcha.",icono:"🔍"},
+        {dia:"Viernes",accion:"Ritual de seguimiento 15 min. Actualizar acciones, compromisos y plan estratégico.",icono:"✅"},
+        {dia:"Meta mensual",accion:"Visitar al menos 1 vez cada agencia. Registrar todas en la plataforma.",icono:"🎯"},
+      ]},
+      {titulo:"Director — Rutina semanal (10 min)",color:"#7c4a00",bg:"#fff8e1",border:"#f0d060",items:[
+        {dia:"Lunes 8am",accion:"Abrir Plataforma IGI → Pestaña Pulso Semanal → revisar semáforos y alertas rojas.",icono:"⚡"},
+        {dia:"Lunes 8:10am",accion:"Identificar zonas con IGI que bajó vs semana anterior y acciones pendientes críticas.",icono:"📉"},
+        {dia:"Lunes 8:20am",accion:"Escribir retroalimentación breve a las 2–3 zonas que más la necesitan.",icono:"💬"},
+        {dia:"Jueves",accion:"Reunión virtual 45 min con todos los líderes. Usar la agenda generada por la plataforma.",icono:"📅"},
+      ]},
+      {titulo:"Director — Cierre mensual (30 min)",color:"#1a5e20",bg:"#e8f5e9",border:"#a5d6a7",items:[
+        {dia:"Primer lunes del mes",accion:'Generar "Informe Mensual IA" → leer el análisis completo de la red.',icono:"📋"},
+        {dia:"Primer lunes",accion:"Comparar IGI actual vs mes anterior por zona. Identificar tendencias.",icono:"📈"},
+        {dia:"Primer lunes",accion:"Escribir retroalimentación mensual a todos los líderes con meta IGI del mes.",icono:"🎯"},
+        {dia:"Primer martes",accion:"Compartir el informe con dirección general / stakeholders si aplica.",icono:"📤"},
+      ]},
+    ];
+
+    cadencias.forEach(c=>{
+      h+=`<div class="cadencia-card" style="background:${c.bg};border-color:${c.border}">
+        <div style="font-size:13px;font-weight:600;color:${c.color};margin-bottom:10px">${c.titulo}</div>`;
+      c.items.forEach(item=>{
+        h+=`<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid ${c.border}40">
+          <span style="font-size:16px;flex-shrink:0">${item.icono}</span>
+          <div><span style="font-weight:500;font-size:12px">${item.dia}:</span> <span style="font-size:12px;color:#333">${item.accion}</span></div>
+        </div>`;
+      });
+      h+=`</div>`;
+    });
+
+    h+=`<div style="background:#f5f4fb;border-radius:8px;padding:12px;margin-top:4px;font-size:12px;color:#444;line-height:1.7">
+      <b>💡 Regla de oro:</b> Con este ritmo, en 4 semanas tendrás evaluación completa de las 101 agencias, historial de visitas por agencia, y suficientes datos para que la IA genere diagnósticos precisos y útiles.
+    </div></div>`;
+  }
+
+  // ── ALERTAS ──
   if(tabD==="alertas"){
     let alerts=[];
     LIDERES.forEach(l=>{const d=DB[l.id];if(!d)return;d.ags.forEach(ag=>{const t=igi(pr(ag.eje1),pr(ag.eje2),pr(ag.eje3));if(t>0&&t<2.5)alerts.push({l,ag,t});});});
     alerts.sort((a,b)=>a.t-b.t);
-    if(!alerts.length)h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:8px;color:#888">Sin alertas ✓</div>`;
-    else alerts.forEach(r=>{h+=`<div class="alert-item"><div><b style="color:#8b0000">${r.ag.nom}</b> <span style="font-size:11px;color:#888">(${r.ag.cod})</span>
-      <div style="font-size:12px;color:#666">${r.l.z} · ${r.l.n}</div>
-      ${r.ag.accion?`<div style="font-size:12px;margin-top:2px">Acción: ${r.ag.accion}</div>`:""}</div>
-      <div style="text-align:right"><div style="font-size:24px;font-weight:500;color:#8b0000">${r.t}</div><div style="font-size:11px;color:#888">IGI</div></div></div>`;});
+    if(!alerts.length)h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:8px;color:#888">Sin alertas activas ✓</div>`;
+    else{
+      h+=`<div style="font-size:13px;color:#666;margin-bottom:8px">⚠️ <b>${alerts.length}</b> agencia(s) con IGI &lt; 2.5 — requieren visita urgente del líder zonal.</div>`;
+      alerts.forEach(r=>{h+=`<div class="alert-item">
+        <div><b style="color:#8b0000">${r.ag.nom}</b> <span style="font-size:11px;color:#888">(${r.ag.cod})</span>
+        <div style="font-size:12px;color:#666">${r.l.z} · ${r.l.n}</div>
+        ${r.ag.accion?`<div style="font-size:12px;margin-top:2px">Acción: ${r.ag.accion}</div>`:""}</div>
+        <div style="text-align:right"><div style="font-size:24px;font-weight:500;color:#8b0000">${r.t}</div><div style="font-size:11px;color:#888">IGI</div></div>
+      </div>`;});
+    }
   }
-  if(tabD==="seguimiento"){
-    h+=`<table><thead><tr><th>Zona</th><th>Líder</th><th>IGI</th><th>Evaluadas</th><th>Visitas</th><th>Plan</th><th>Observaciones</th></tr></thead><tbody>`;
-    allS.forEach(s=>{
-      const d=DB[s.L.id];
-      const ev=d?d.ags.filter(a=>igi(pr(a.eje1),pr(a.eje2),pr(a.eje3))>0).length:0;
-      const pl=d?d.plan.length:0,plC=d&&pl?d.plan.filter(p=>p.estado==="Completado").length:0;
-      const tv=d?.visitas?Object.values(d.visitas).reduce((a,v)=>a+v.length,0):0;
-      const n=nv(s.avg);
-      h+=`<tr><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td>
-        <td><span style="background:${n.bg};color:${n.c};padding:2px 8px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
-        <td style="text-align:center">${ev}/${s.nag}</td>
-        <td style="text-align:center;color:#534AB7;font-weight:500">${tv}</td>
-        <td>${pl?`${plC}/${pl} ✓`:"Sin plan"}</td>
-        <td style="font-size:11px;color:#555;max-width:150px">${d?.obs||"—"}</td></tr>`;
-    });
-    h+=`</tbody></table>`;
-  }
+
   document.getElementById("app").innerHTML=h;
 }
 
-// ── LÍDER ─────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════
+// LÍDER
+// ═══════════════════════════════════════════════════════
 function renderLider(){
   const L=LIDERES.find(l=>l.id===lid);
   const data=DB[lid];if(!data){document.getElementById("app").innerHTML="<div class='card'>Cargando...</div>";return;}
   const zs=zonaSt(lid);const nZ=nv(zs.avg);
   const ini=L.n.split(" ").map(x=>x[0]).slice(0,2).join("");
   const pct=Math.round((data.ags.reduce((acc,a)=>acc+a.eje1.filter(x=>x>0).length+a.eje2.filter(x=>x>0).length+a.eje3.filter(x=>x>0).length,0)/(TV*data.ags.length))*100);
-  let h=`<div class="card" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-    <div style="width:42px;height:42px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#534AB7;flex-shrink:0">${ini}</div>
-    <div style="flex:1"><b>${L.n}</b><div style="font-size:12px;color:#888">${L.z}</div></div>
-    <span style="font-size:12px">🟢${zs.f} 🟡${zs.m} 🔴${zs.db}</span>
-    <div style="text-align:center"><div style="font-size:11px;color:#888">IGI Zona</div><div style="font-size:20px;font-weight:500;color:${nZ.c}">${nZ.s} ${zs.avg||"—"}</div></div>
-    <span style="font-size:12px;color:${pct>=80?"#1a5e20":pct>=40?"#7c4a00":"#8b0000"};font-weight:500">${pct}% eval.</span>
-    <button class="btn btn-p btn-sm" onclick="openDiag(${lid})">Diagnóstico IA ↗</button>
+
+  // Retro del director si existe
+  const retro=data.retro_director?.historial?.[0];
+  let retroBanner="";
+  if(retro){retroBanner=`<div class="retro-box"><div style="font-size:12px;font-weight:600;color:#1a1060;margin-bottom:6px">💬 Retroalimentación del Director — ${retro.fecha_guardado||retro.fecha}</div>
+    ${retro.fortalezas?`<div style="font-size:12px;margin-bottom:4px"><b style="color:#1a5e20">✅ Fortalezas:</b> ${esc(retro.fortalezas)}</div>`:""}
+    ${retro.oportunidades?`<div style="font-size:12px;margin-bottom:4px"><b style="color:#7c4a00">🎯 Oportunidades:</b> ${esc(retro.oportunidades)}</div>`:""}
+    ${retro.compromisos_dir?`<div style="font-size:12px;margin-bottom:4px"><b style="color:#8b0000">📌 Me pide:</b> ${esc(retro.compromisos_dir)}</div>`:""}
+    ${retro.meta_igi?`<div style="font-size:12px"><b style="color:#534AB7">📈 Meta IGI:</b> ${esc(retro.meta_igi)}</div>`:""}
+  </div>`;}
+
+  let h=`<div class="card">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div style="width:42px;height:42px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#534AB7;flex-shrink:0">${ini}</div>
+      <div style="flex:1"><b>${L.n}</b><div style="font-size:12px;color:#888">${L.z}</div></div>
+      <span style="font-size:12px">🟢${zs.f} 🟡${zs.m} 🔴${zs.db}</span>
+      <div style="text-align:center"><div style="font-size:11px;color:#888">IGI Zona</div><div style="font-size:20px;font-weight:500;color:${nZ.c}">${nZ.s} ${zs.avg||"—"}</div></div>
+      <span style="font-size:12px;color:${pct>=80?"#1a5e20":pct>=40?"#7c4a00":"#8b0000"};font-weight:500">${pct}% eval.</span>
+      <button class="btn btn-p btn-sm" onclick="openDiag(${lid})">Diagnóstico IA ↗</button>
+    </div>
+    ${retroBanner}
   </div>
   <div class="tabs">
     ${[["eval","📋 Evaluación"],["visitas","🏪 Gestión Visitas"],["resumen","📊 Resumen"],["plan","🎯 Plan Estratégico"]].map(([id,lbl])=>`<button class="tab-btn ${tabL===id?"active":""}" onclick="setTabL('${id}')">${lbl}</button>`).join("")}
   </div>`;
+
   if(tabL==="eval"){
     h+=`<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px">`;
-    data.ags.forEach((ag,i)=>{
-      const{t,nv:n}=agSt(ag);const comp=ag.eje1.filter(x=>x>0).length+ag.eje2.filter(x=>x>0).length+ag.eje3.filter(x=>x>0).length;
-      h+=`<button class="ag-btn" onclick="setAg(${i})" style="background:${i===agI?"#534AB7":n.bg};color:${i===agI?"#fff":n.c};border-color:${i===agI?"#534AB7":n.c+"50"}">
-        <div style="font-weight:500">${ag.nom}</div>
-        <div style="font-size:10px;opacity:.85">${ag.cod}·${t||"—"}${comp===TV?" ✓":""}</div>
-      </button>`;
-    });
+    data.ags.forEach((ag,i)=>{const{t,nv:n}=agSt(ag);const comp=ag.eje1.filter(x=>x>0).length+ag.eje2.filter(x=>x>0).length+ag.eje3.filter(x=>x>0).length;h+=`<button class="ag-btn" onclick="setAg(${i})" style="background:${i===agI?"#534AB7":n.bg};color:${i===agI?"#fff":n.c};border-color:${i===agI?"#534AB7":n.c+"50"}"><div style="font-weight:500">${ag.nom}</div><div style="font-size:10px;opacity:.85">${ag.cod}·${t||"—"}${comp===TV?" ✓":""}</div></button>`;});
     h+=`</div>`+renderEval(data.ags[agI]);
   }
   if(tabL==="visitas") h+=renderVisitas();
@@ -428,14 +589,9 @@ function renderLider(){
     h+=`<div class="grid3" style="margin-bottom:12px">`;
     [["Capacidad E1",zs.e1],["Externas E2",zs.e2],["Tareas E3",zs.e3]].forEach(([lbl,avg])=>{h+=`<div class="kpi"><div class="kpi-lbl">${lbl}</div><div class="kpi-val" style="color:${nv(avg).c}">${avg||"—"}</div>${mbar(avg)}</div>`;});
     h+=`</div><div style="overflow-x:auto"><table><thead><tr><th>Cód</th><th>Agencia</th><th>Admin</th><th>E1</th><th>E2</th><th>E3</th><th>IGI</th><th>Nivel</th><th>Visitas</th><th>Acción</th></tr></thead><tbody>`;
-    data.ags.forEach((ag,i)=>{
-      const{p1,p2,p3,t}=agSt(ag);
-      const nv2=data.visitas&&data.visitas[ag.cod]?data.visitas[ag.cod].length:0;
-      h+=`<tr><td style="color:#888;font-size:11px">${ag.cod}</td><td><b>${ag.nom}</b></td><td style="color:#555">${ag.admin||"—"}</td>
-        ${[p1,p2,p3].map(v=>`<td>${cv(v)}</td>`).join("")}
-        <td style="font-weight:500">${t||"—"}</td><td>${bdg(t)}</td>
-        <td style="text-align:center;color:#534AB7;font-weight:500">${nv2}</td>
-        <td style="font-size:11px;color:#555;max-width:130px">${ag.accion||"—"}</td></tr>`;
+    data.ags.forEach((ag)=>{
+      const{p1,p2,p3,t}=agSt(ag);const nv2=data.visitas&&data.visitas[ag.cod]?data.visitas[ag.cod].length:0;
+      h+=`<tr><td style="color:#888;font-size:11px">${ag.cod}</td><td><b>${ag.nom}</b></td><td style="color:#555">${ag.admin||"—"}</td>${[p1,p2,p3].map(v=>`<td>${cv(v)}</td>`).join("")}<td style="font-weight:500">${t||"—"}</td><td>${bdg(t)}</td><td style="text-align:center;color:#534AB7;font-weight:500">${nv2}</td><td style="font-size:11px;color:#555;max-width:130px">${ag.accion||"—"}</td></tr>`;
     });
     h+=`</tbody></table></div>`;
   }
@@ -443,99 +599,77 @@ function renderLider(){
   document.getElementById("app").innerHTML=h;
 }
 
-// ── RENDER VISITAS ────────────────────────────────────
-function renderVisitas(){
-  const data=DB[lid];
-  const ag=data.ags[agI];
-  const visitas=getVisitas(ag.cod);
-  const totalVisitas=data.visitas?Object.values(data.visitas).reduce((a,v)=>a+v.length,0):0;
+function renderEval(ag){
+  if(!ag)return"";const{p1,p2,p3,t,nv:n}=agSt(ag);
+  let h=`<div class="grid3" style="margin-bottom:12px">
+    <div class="field"><label>Administrador</label><input type="text" value="${esc(ag.admin)}" onchange="updAg('admin',this.value)"></div>
+    <div class="field"><label>Fecha de visita</label><input type="date" value="${esc(ag.fecha)}" onchange="updAg('fecha',this.value)"></div>
+    <div id="igi-box" style="background:${n.bg};border:1px solid ${n.c}40;border-radius:10px;padding:10px;text-align:center">
+      <div style="font-size:11px;color:${n.c}">IGI Total</div><div style="font-size:26px;font-weight:500;color:${n.c}">${t||"—"}</div><div style="font-size:13px">${n.s} ${n.l}</div>
+    </div></div>`;
+  h+=`<div class="eje-hdr" style="color:#534AB7;border-color:#e0dff8"><span>Eje 1 — Capacidad Interna (40%)</span>${cv(p1)}</div><div class="eje-grid">`;
+  EJE1.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f9f9ff"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje1[i]||""}" onchange="updEje('eje1',${i},parseFloat(this.value)||0)"></div>`);
+  h+=`</div><div class="eje-hdr" style="color:#0F6E56;border-color:#9FE1CB"><span>Eje 2 — Condiciones Externas (25%)</span>${cv(p2)}</div><div class="eje-grid">`;
+  EJE2.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f6fff9"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje2[i]||""}" onchange="updEje('eje2',${i},parseFloat(this.value)||0)"></div>`);
+  h+=`</div><div class="eje-hdr" style="color:#85370D;border-color:#F5C4B3"><span>Eje 3 — Tareas Operativas (35%)</span>${cv(p3)}</div>`;
+  let idx=0;EJE3G.forEach(g=>{h+=`<div style="font-size:11px;color:#85370D;background:#fff5f0;padding:3px 8px;border-radius:5px;margin:6px 0 4px;font-weight:500">${g.g}</div><div class="eje-grid">`;g.v.forEach(v=>{h+=`<div class="eje-row" style="background:#fff8f5"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje3[idx]||""}" onchange="updEje('eje3',${idx},parseFloat(this.value)||0)"></div>`;idx++;});h+=`</div>`;});
+  h+=`<div class="grid2" style="margin-top:8px"><div class="field"><label>Acción prioritaria</label><input type="text" value="${esc(ag.accion)}" placeholder="Acción más urgente..." onchange="updAg('accion',this.value)"></div><div class="field"><label>Estrategia</label><input type="text" value="${esc(ag.estrategia)}" placeholder="Estrategia definida..." onchange="updAg('estrategia',this.value)"></div></div>
+  <div class="field"><label>Observaciones</label><textarea rows="2" onchange="updAg('obs',this.value)">${esc(ag.obs)}</textarea></div>`;
+  return h;
+}
 
-  let h=`
-  <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
-    <span style="font-size:13px;color:#888">Selecciona agencia:</span>
+function renderVisitas(){
+  const data=DB[lid];const ag=data.ags[agI];
+  if(!DB[lid].visitas)DB[lid].visitas={};
+  const visitas=DB[lid].visitas[ag.cod]||[];
+  const totalVisitas=Object.values(data.visitas).reduce((a,v)=>a+v.length,0);
+  let h=`<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
     <select onchange="agI=parseInt(this.value);render()" style="width:auto;padding:5px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px">
       ${data.ags.map((a,i)=>`<option value="${i}" ${i===agI?"selected":""}>${a.cod} — ${a.nom}</option>`).join("")}
     </select>
-    <span style="font-size:12px;color:#534AB7;font-weight:500">${visitas.length} visita(s) registrada(s)</span>
+    <span style="font-size:12px;color:#534AB7;font-weight:500">${visitas.length} visita(s)</span>
     <span style="font-size:12px;color:#888">| Total zona: ${totalVisitas}</span>
     <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="addVisita()">+ Nueva visita</button>
   </div>`;
-
-  if(!visitas.length){
-    h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:10px;color:#888">
-      <div style="font-size:32px;margin-bottom:8px">📋</div>
-      <div style="font-size:14px;font-weight:500">Sin visitas registradas</div>
-      <div style="font-size:12px;margin-top:4px">Haz clic en "+ Nueva visita" para registrar la primera</div>
-    </div>`;
-    return h;
-  }
-
+  if(!visitas.length)return h+`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:10px;color:#888"><div style="font-size:32px;margin-bottom:8px">📋</div><div style="font-weight:500">Sin visitas registradas</div></div>`;
   visitas.forEach((v,vi)=>{
-    const checks=Object.values(v.check).filter(Boolean).length;
-    const totalChecks=Object.keys(v.check).length;
-    const accPend=v.acciones.filter(a=>a.estado==="Pendiente").length;
-    const comprPend=v.compromisos.filter(c=>c.estado==="Pendiente").length;
+    const checks=Object.values(v.check).filter(Boolean).length;const tc=Object.keys(v.check).length;
+    const ap=v.acciones.filter(a=>a.estado==="Pendiente").length;const cp=v.compromisos.filter(c=>c.estado==="Pendiente").length;
     const cod=ag.cod;
-
-    h+=`<div class="visita-card">
-      <div class="visita-header" onclick="toggleVisita('${cod}',${vi})">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-          <span style="font-size:14px">${v.abierta?"🔽":"▶"}</span>
-          <span style="font-weight:500;color:#1a1060">Visita ${v.fecha||"sin fecha"}</span>
-          ${v.hora_ini?`<span style="font-size:11px;color:#888">${v.hora_ini}${v.hora_fin?" – "+v.hora_fin:""}</span>`:""}
-          <span style="font-size:11px;background:#EEEDFE;color:#534AB7;padding:1px 7px;border-radius:10px">✓ ${checks}/${totalChecks} checklist</span>
-          ${accPend?`<span style="font-size:11px;background:#fff8e1;color:#7c4a00;padding:1px 7px;border-radius:10px">⏳ ${accPend} acción(es) pendiente(s)</span>`:""}
-          ${comprPend?`<span style="font-size:11px;background:#ffebee;color:#8b0000;padding:1px 7px;border-radius:10px">🔴 ${comprPend} compromiso(s)</span>`:""}
-        </div>
-        <button class="btn-danger btn-sm" onclick="event.stopPropagation();delVisita('${cod}',${vi})">✕</button>
-      </div>`;
-
+    h+=`<div class="visita-card"><div class="visita-header" onclick="toggleVisita('${cod}',${vi})">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span>${v.abierta?"🔽":"▶"}</span>
+        <span style="font-weight:500;color:#1a1060">Visita ${v.fecha||"sin fecha"}</span>
+        ${v.hora_ini?`<span style="font-size:11px;color:#888">${v.hora_ini}${v.hora_fin?" – "+v.hora_fin:""}</span>`:""}
+        <span style="font-size:11px;background:#EEEDFE;color:#534AB7;padding:1px 7px;border-radius:10px">✓ ${checks}/${tc}</span>
+        ${ap?`<span style="font-size:11px;background:#fff8e1;color:#7c4a00;padding:1px 7px;border-radius:10px">⏳ ${ap} pend.</span>`:""}
+        ${cp?`<span style="font-size:11px;background:#ffebee;color:#8b0000;padding:1px 7px;border-radius:10px">🔴 ${cp} comp.</span>`:""}
+      </div>
+      <button class="btn-danger btn-sm" onclick="event.stopPropagation();delVisita('${cod}',${vi})">✕</button>
+    </div>`;
     if(v.abierta){
       h+=`<div class="visita-body">
       <div class="grid3" style="margin-bottom:10px">
-        <div class="field"><label>Fecha de visita</label><input type="date" value="${esc(v.fecha)}" onchange="updVisita('${cod}',${vi},'fecha',this.value)"></div>
+        <div class="field"><label>Fecha</label><input type="date" value="${esc(v.fecha)}" onchange="updVisita('${cod}',${vi},'fecha',this.value)"></div>
         <div class="field"><label>Hora inicio</label><input type="time" value="${esc(v.hora_ini)}" onchange="updVisita('${cod}',${vi},'hora_ini',this.value)"></div>
         <div class="field"><label>Hora fin</label><input type="time" value="${esc(v.hora_fin)}" onchange="updVisita('${cod}',${vi},'hora_fin',this.value)"></div>
       </div>
-
-      <!-- ANTES -->
-      <div class="seccion">
-        <div class="sec-title">📌 ANTES — Objetivo de la visita</div>
-        <div class="field"><label>¿Qué voy a revisar / lograr en esta visita?</label>
-          <textarea rows="2" onchange="updVisita('${cod}',${vi},'objetivo',this.value)">${esc(v.objetivo)}</textarea></div>
+      <div class="seccion"><div class="sec-title">📌 ANTES — Objetivo de la visita</div>
+        <div class="field"><label>¿Qué voy a revisar / lograr?</label><textarea rows="2" onchange="updVisita('${cod}',${vi},'objetivo',this.value)">${esc(v.objetivo)}</textarea></div>
       </div>
-
-      <!-- DURANTE -->
-      <div class="seccion seccion-verde">
-        <div class="sec-title sec-title-verde">🔍 DURANTE — ¿Qué está pasando?</div>
-        <div class="grid2">
-          <div class="field"><label>¿Qué está pasando? (datos rápidos)</label>
-            <textarea rows="3" onchange="updVisita('${cod}',${vi},'que_pasa',this.value)">${esc(v.que_pasa)}</textarea></div>
-          <div class="field"><label>¿Cuál es el desafío?</label>
-            <textarea rows="3" onchange="updVisita('${cod}',${vi},'desafio',this.value)">${esc(v.desafio)}</textarea></div>
-        </div>
-
-        <!-- CHECKLIST -->
+      <div class="seccion seccion-verde"><div class="sec-title sec-title-verde">🔍 DURANTE</div>
+        <div class="grid2"><div class="field"><label>¿Qué está pasando?</label><textarea rows="3" onchange="updVisita('${cod}',${vi},'que_pasa',this.value)">${esc(v.que_pasa)}</textarea></div>
+        <div class="field"><label>¿Cuál es el desafío?</label><textarea rows="3" onchange="updVisita('${cod}',${vi},'desafio',this.value)">${esc(v.desafio)}</textarea></div></div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:8px">
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Comercial</div>
-            ${[["visito","Visité al menos 1 joyería"],["reviso_resultados","Revisé resultados con el equipo"],["ejecuto_activacion","Se ejecutó al menos 1 activación"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
-          </div>
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Equipo</div>
-            ${[["feedback","Di feedback puntual"],["reconocio","Reconocí al menos 1 colaborador"],["detecto_brecha","Detecté una brecha concreta"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
-          </div>
-          <div>
-            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Ejecución</div>
-            ${[["dejo_tareas","Dejé tareas escritas"],["pidio_evidencia","Pedí evidencia"],["seguimiento_ant","Hice seguimiento a compromisos anteriores"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
-          </div>
+          <div><div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Comercial</div>
+            ${[["visito","Visité la joyería"],["reviso_resultados","Revisé resultados"],["ejecuto_activacion","Ejecuté activación"]].map(([k,l])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${l}</span></div>`).join("")}</div>
+          <div><div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Equipo</div>
+            ${[["feedback","Di feedback puntual"],["reconocio","Reconocí colaborador"],["detecto_brecha","Detecté brecha concreta"]].map(([k,l])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${l}</span></div>`).join("")}</div>
+          <div><div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Ejecución</div>
+            ${[["dejo_tareas","Dejé tareas escritas"],["pidio_evidencia","Pedí evidencia"],["seguimiento_ant","Hice seguimiento ant."]].map(([k,l])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${l}</span></div>`).join("")}</div>
         </div>
-
-        <div class="field" style="margin-top:10px"><label>✅ Decisión tomada</label>
-          <textarea rows="2" onchange="updVisita('${cod}',${vi},'decision',this.value)">${esc(v.decision)}</textarea></div>
+        <div class="field" style="margin-top:10px"><label>✅ Decisión tomada</label><textarea rows="2" onchange="updVisita('${cod}',${vi},'decision',this.value)">${esc(v.decision)}</textarea></div>
       </div>
-
-      <!-- ACCIONES ACORDADAS -->
       <div class="seccion seccion-naranja">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
           <div class="sec-title sec-title-naranja" style="margin:0">📋 Acciones acordadas</div>
@@ -543,162 +677,121 @@ function renderVisitas(){
         </div>
         <table><thead><tr><th>Tema</th><th>Decisión</th><th>Acción</th><th>Responsable</th><th>Fecha</th><th>Estado</th><th></th></tr></thead><tbody>`;
       v.acciones.forEach((a,ai)=>{
-        const colE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
-        h+=`<tr>
-          <td><input type="text" value="${esc(a.tema)}" placeholder="Tema..." onchange="updAccionV('${cod}',${vi},${ai},'tema',this.value)"></td>
-          <td><input type="text" value="${esc(a.decision)}" placeholder="Decisión..." onchange="updAccionV('${cod}',${vi},${ai},'decision',this.value)"></td>
-          <td><input type="text" value="${esc(a.accion)}" placeholder="Acción..." onchange="updAccionV('${cod}',${vi},${ai},'accion',this.value)"></td>
-          <td><input type="text" value="${esc(a.responsable)}" placeholder="Responsable..." onchange="updAccionV('${cod}',${vi},${ai},'responsable',this.value)"></td>
-          <td><input type="date" value="${esc(a.fecha)}" onchange="updAccionV('${cod}',${vi},${ai},'fecha',this.value)"></td>
-          <td><select style="background:${colE[a.estado]||"#fff"}" onchange="updAccionV('${cod}',${vi},${ai},'estado',this.value)">
-            ${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${a.estado===s?" selected":""}>${s}</option>`).join("")}
-          </select></td>
-          <td><button class="btn-danger" onclick="delAccionV('${cod}',${vi},${ai})">✕</button></td>
-        </tr>`;
+        const cE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
+        h+=`<tr><td><input type="text" value="${esc(a.tema)}" onchange="updAccionV('${cod}',${vi},${ai},'tema',this.value)"></td><td><input type="text" value="${esc(a.decision)}" onchange="updAccionV('${cod}',${vi},${ai},'decision',this.value)"></td><td><input type="text" value="${esc(a.accion)}" onchange="updAccionV('${cod}',${vi},${ai},'accion',this.value)"></td><td><input type="text" value="${esc(a.responsable)}" onchange="updAccionV('${cod}',${vi},${ai},'responsable',this.value)"></td><td><input type="date" value="${esc(a.fecha)}" onchange="updAccionV('${cod}',${vi},${ai},'fecha',this.value)"></td>
+        <td><select style="background:${cE[a.estado]||"#fff"}" onchange="updAccionV('${cod}',${vi},${ai},'estado',this.value)">${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${a.estado===s?" selected":""}>${s}</option>`).join("")}</select></td>
+        <td><button class="btn-danger" onclick="delAccionV('${cod}',${vi},${ai})">✕</button></td></tr>`;
       });
       h+=`</tbody></table></div>
-
-      <!-- COMPROMISOS -->
       <div class="seccion seccion-amarilla">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <div class="sec-title sec-title-amarilla" style="margin:0">🤝 Tablero de compromisos</div>
+          <div class="sec-title sec-title-amarilla" style="margin:0">🤝 Compromisos</div>
           <button class="btn btn-sm" style="background:#7c4a00;color:#fff" onclick="addCompr('${cod}',${vi})">+ Agregar</button>
         </div>`;
-      v.compromisos.forEach((c,ci)=>{
-        const colC={"Pendiente":"#fff8e1","En proceso":"#e3f2fd","Hecho":"#e8f5e9"};
-        h+=`<div class="compromiso-row">
-          <input type="text" value="${esc(c.compromiso)}" placeholder="Compromiso..." onchange="updCompr('${cod}',${vi},${ci},'compromiso',this.value)">
-          <input type="text" value="${esc(c.accion)}" placeholder="Acción definida..." onchange="updCompr('${cod}',${vi},${ci},'accion',this.value)">
-          <div style="display:flex;gap:4px;align-items:center">
-            <select style="flex:1;background:${colC[c.estado]||"#fff"}" onchange="updCompr('${cod}',${vi},${ci},'estado',this.value)">
-              ${["Pendiente","En proceso","Hecho"].map(s=>`<option${c.estado===s?" selected":""}>${s}</option>`).join("")}
-            </select>
-            <button class="btn-danger" onclick="delCompr('${cod}',${vi},${ci})">✕</button>
-          </div>
-        </div>`;
-      });
+      v.compromisos.forEach((c,ci)=>{const cC={"Pendiente":"#fff8e1","En proceso":"#e3f2fd","Hecho":"#e8f5e9"};h+=`<div class="compromiso-row"><input type="text" value="${esc(c.compromiso)}" placeholder="Compromiso..." onchange="updCompr('${cod}',${vi},${ci},'compromiso',this.value)"><input type="text" value="${esc(c.accion)}" placeholder="Acción definida..." onchange="updCompr('${cod}',${vi},${ci},'accion',this.value)"><div style="display:flex;gap:4px"><select style="flex:1;background:${cC[c.estado]||"#fff"}" onchange="updCompr('${cod}',${vi},${ci},'estado',this.value)">${["Pendiente","En proceso","Hecho"].map(s=>`<option${c.estado===s?" selected":""}>${s}</option>`).join("")}</select><button class="btn-danger" onclick="delCompr('${cod}',${vi},${ci})">✕</button></div></div>`;});
       h+=`</div>
-
-      <!-- REFLEXION -->
-      <div class="seccion">
-        <div class="sec-title">💭 Reflexión de la visita</div>
-        <div class="field"><label>Reflexión (1–2 líneas)</label>
-          <textarea rows="2" onchange="updVisita('${cod}',${vi},'reflexion',this.value)">${esc(v.reflexion)}</textarea></div>
-      </div>
-
-      <!-- RITUAL SEGUIMIENTO -->
-      <div class="ritual-box">
-        <div style="font-size:13px;font-weight:600;color:#7c4a00;margin-bottom:8px">⏱ Ritual de seguimiento (15 min)</div>
-        <div class="field"><label>Semana</label><input type="text" value="${esc(v.ritual.semana)}" placeholder="Ej: 18 al 21 de febrero 2026" onchange="updRitual('${cod}',${vi},'semana',this.value)"></div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          ${[[1,"¿Qué dijimos que íbamos a hacer?","dijimos"],[2,"¿Qué sí se hizo?","se_hizo"],[3,"¿Qué aprendimos?","aprendimos"]].map(([n,lbl,k])=>`
-          <div style="display:flex;gap:8px;align-items:flex-start">
-            <div class="ritual-num">${n}</div>
-            <div style="flex:1"><label>${lbl}</label>
-              <textarea rows="2" onchange="updRitual('${cod}',${vi},'${k}',this.value)">${esc(v.ritual[k])}</textarea></div>
-          </div>`).join("")}
-          <div style="display:flex;gap:8px;align-items:flex-start">
-            <div style="width:24px;flex-shrink:0"></div>
-            <div style="flex:1"><label style="font-weight:600;color:#7c4a00">📌 Acuerdos para la próxima semana</label>
-              <textarea rows="2" onchange="updRitual('${cod}',${vi},'acuerdos',this.value)">${esc(v.ritual.acuerdos)}</textarea></div>
-          </div>
-        </div>
-      </div>
-
-      </div>`; // cierre visita-body
+      <div class="seccion"><div class="sec-title">💭 Reflexión</div>
+        <textarea rows="2" onchange="updVisita('${cod}',${vi},'reflexion',this.value)">${esc(v.reflexion)}</textarea></div>
+      <div class="ritual-box"><div style="font-size:13px;font-weight:600;color:#7c4a00;margin-bottom:8px">⏱ Ritual de seguimiento 15 min</div>
+        <div class="field"><label>Semana</label><input type="text" value="${esc(v.ritual.semana)}" placeholder="Ej: 18 al 21 de febrero" onchange="updRitual('${cod}',${vi},'semana',this.value)"></div>
+        ${[[1,"¿Qué dijimos que íbamos a hacer?","dijimos"],[2,"¿Qué sí se hizo?","se_hizo"],[3,"¿Qué aprendimos?","aprendimos"]].map(([n,lbl,k])=>`<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:6px"><div class="ritual-num">${n}</div><div style="flex:1"><label>${lbl}</label><textarea rows="2" onchange="updRitual('${cod}',${vi},'${k}',this.value)">${esc(v.ritual[k])}</textarea></div></div>`).join("")}
+        <div class="field"><label style="font-weight:600;color:#7c4a00">📌 Acuerdos próxima semana</label><textarea rows="2" onchange="updRitual('${cod}',${vi},'acuerdos',this.value)">${esc(v.ritual.acuerdos)}</textarea></div>
+      </div></div>`;
     }
-    h+=`</div>`; // cierre visita-card
-  });
-  return h;
-}
-
-// ── RENDER EVAL IGI ───────────────────────────────────
-function renderEval(ag){
-  if(!ag)return"";
-  const{p1,p2,p3,t,nv:n}=agSt(ag);
-  let h=`<div class="grid3" style="margin-bottom:12px">
-    <div class="field"><label>Administrador</label><input type="text" value="${esc(ag.admin)}" onchange="updAg('admin',this.value)"></div>
-    <div class="field"><label>Fecha de visita</label><input type="date" value="${esc(ag.fecha)}" onchange="updAg('fecha',this.value)"></div>
-    <div id="igi-box" style="background:${n.bg};border:1px solid ${n.c}40;border-radius:10px;padding:10px;text-align:center">
-      <div style="font-size:11px;color:${n.c}">IGI Total</div>
-      <div style="font-size:26px;font-weight:500;color:${n.c}">${t||"—"}</div>
-      <div style="font-size:13px">${n.s} ${n.l}</div>
-    </div>
-  </div>`;
-  h+=`<div class="eje-hdr" style="color:#534AB7;border-color:#e0dff8"><span>Eje 1 — Capacidad Interna (40%)</span>${cv(p1)}</div><div class="eje-grid">`;
-  EJE1.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f9f9ff"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje1[i]||""}" onchange="updEje('eje1',${i},parseFloat(this.value)||0)"></div>`);
-  h+=`</div><div class="eje-hdr" style="color:#0F6E56;border-color:#9FE1CB"><span>Eje 2 — Condiciones Externas (25%)</span>${cv(p2)}</div><div class="eje-grid">`;
-  EJE2.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f6fff9"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje2[i]||""}" onchange="updEje('eje2',${i},parseFloat(this.value)||0)"></div>`);
-  h+=`</div><div class="eje-hdr" style="color:#85370D;border-color:#F5C4B3"><span>Eje 3 — Tareas Operativas (35%)</span>${cv(p3)}</div>`;
-  let idx=0;
-  EJE3G.forEach(g=>{
-    h+=`<div style="font-size:11px;color:#85370D;background:#fff5f0;padding:3px 8px;border-radius:5px;margin:6px 0 4px;font-weight:500">${g.g}</div><div class="eje-grid">`;
-    g.v.forEach(v=>{h+=`<div class="eje-row" style="background:#fff8f5"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje3[idx]||""}" onchange="updEje('eje3',${idx},parseFloat(this.value)||0)"></div>`;idx++;});
     h+=`</div>`;
   });
-  h+=`<div class="grid2" style="margin-top:8px">
-    <div class="field"><label>Acción prioritaria</label><input type="text" value="${esc(ag.accion)}" placeholder="Acción más urgente..." onchange="updAg('accion',this.value)"></div>
-    <div class="field"><label>Estrategia</label><input type="text" value="${esc(ag.estrategia)}" placeholder="Estrategia definida..." onchange="updAg('estrategia',this.value)"></div>
-  </div>
-  <div class="field"><label>Observaciones</label><textarea rows="2" placeholder="Hallazgos, contexto, notas..." onchange="updAg('obs',this.value)">${esc(ag.obs)}</textarea></div>`;
   return h;
 }
 
 function renderPlanH(){
   const plan=DB[lid]?.plan||[],obs=DB[lid]?.obs||"";
-  const colE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
-  let h=`<div class="field"><label style="font-size:13px;font-weight:500">Observaciones generales de la zona</label>
-    <textarea rows="3" onchange="updZona('obs',this.value)">${obs}</textarea></div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-    <span style="font-size:13px;font-weight:500">Acciones estratégicas</span>
-    <button class="btn btn-p btn-sm" onclick="addPlan()">+ Agregar</button>
-  </div>`;
-  if(!plan.length)h+=`<div style="text-align:center;padding:1.5rem;background:#fafafa;border-radius:8px;color:#888">Sin acciones registradas.</div>`;
-  plan.forEach((item,i)=>{
-    h+=`<div class="plan-item"><div class="grid3" style="margin-bottom:8px">
-      <div class="field"><label>Objetivo</label><input type="text" value="${esc(item.obj)}" onchange="updPlan(${i},'obj',this.value)"></div>
-      <div class="field"><label>Acción concreta</label><input type="text" value="${esc(item.accion)}" onchange="updPlan(${i},'accion',this.value)"></div>
-      <div class="field"><label>Responsable</label><input type="text" value="${esc(item.resp)}" onchange="updPlan(${i},'resp',this.value)"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end">
-      <div class="field"><label>Fecha límite</label><input type="date" value="${esc(item.fecha)}" onchange="updPlan(${i},'fecha',this.value)"></div>
-      <div class="field"><label>Avance: ${item.av}%</label>
-        <input type="range" min="0" max="100" step="5" value="${item.av}" oninput="updPlan(${i},'av',this.value);this.previousElementSibling.textContent='Avance: '+this.value+'%'">
-        <div style="height:4px;background:#eee;border-radius:2px;margin-top:2px;overflow:hidden"><div style="height:4px;width:${item.av}%;background:${item.av>=80?"#1a5e20":item.av>=40?"#f57f17":"#c62828"};border-radius:2px"></div></div>
-      </div>
-      <div class="field"><label>Estado</label>
-        <select style="background:${colE[item.estado]||"#fff"}" onchange="updPlan(${i},'estado',this.value)">
-          ${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${item.estado===s?" selected":""}>${s}</option>`).join("")}
-        </select></div>
-      <button class="btn-danger" onclick="delPlan(${i})">✕</button>
-    </div></div>`;
-  });
+  const cE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
+  let h=`<div class="field"><label style="font-size:13px;font-weight:500">Observaciones generales de la zona</label><textarea rows="3" onchange="updZona('obs',this.value)">${obs}</textarea></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:13px;font-weight:500">Acciones estratégicas</span><button class="btn btn-p btn-sm" onclick="addPlan()">+ Agregar</button></div>`;
+  if(!plan.length)h+=`<div style="text-align:center;padding:1.5rem;background:#fafafa;border-radius:8px;color:#888">Sin acciones.</div>`;
+  plan.forEach((item,i)=>{h+=`<div class="plan-item"><div class="grid3" style="margin-bottom:8px"><div class="field"><label>Objetivo</label><input type="text" value="${esc(item.obj)}" onchange="updPlan(${i},'obj',this.value)"></div><div class="field"><label>Acción</label><input type="text" value="${esc(item.accion)}" onchange="updPlan(${i},'accion',this.value)"></div><div class="field"><label>Responsable</label><input type="text" value="${esc(item.resp)}" onchange="updPlan(${i},'resp',this.value)"></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end"><div class="field"><label>Fecha límite</label><input type="date" value="${esc(item.fecha)}" onchange="updPlan(${i},'fecha',this.value)"></div>
+  <div class="field"><label>Avance: ${item.av}%</label><input type="range" min="0" max="100" step="5" value="${item.av}" oninput="updPlan(${i},'av',this.value);this.previousElementSibling.textContent='Avance: '+this.value+'%'"><div style="height:4px;background:#eee;border-radius:2px;overflow:hidden"><div style="height:4px;width:${item.av}%;background:${item.av>=80?"#1a5e20":item.av>=40?"#f57f17":"#c62828"}"></div></div></div>
+  <div class="field"><label>Estado</label><select style="background:${cE[item.estado]||"#fff"}" onchange="updPlan(${i},'estado',this.value)">${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${item.estado===s?" selected":""}>${s}</option>`).join("")}</select></div>
+  <button class="btn-danger" onclick="delPlan(${i})">✕</button></div></div>`;});
   return h;
 }
 
 function renderIGIBox(){
-  const ag=DB[lid]?.ags[agI];if(!ag)return;
-  const{t,nv:n}=agSt(ag);const box=document.getElementById("igi-box");if(!box)return;
+  const ag=DB[lid]?.ags[agI];if(!ag)return;const{t,nv:n}=agSt(ag);const box=document.getElementById("igi-box");if(!box)return;
   box.style.background=n.bg;box.style.borderColor=n.c+"40";
   box.innerHTML=`<div style="font-size:11px;color:${n.c}">IGI Total</div><div style="font-size:26px;font-weight:500;color:${n.c}">${t||"—"}</div><div style="font-size:13px">${n.s} ${n.l}</div>`;
 }
 
 // ══════════════════════════════════════════════════════
-// DIAGNÓSTICO IA
+// ANÁLISIS IA
 // ══════════════════════════════════════════════════════
+function abrirModalIA(titulo,sub){
+  document.getElementById("modal-ia-title").textContent=titulo;
+  document.getElementById("modal-ia-sub").textContent=sub;
+  document.getElementById("modal-ia-body").textContent="⏳ Generando análisis...";
+  document.getElementById("modal-ia").style.display="flex";
+}
+async function llamarIA(prompt){
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1500,messages:[{role:"user",content:prompt}]})});
+    const j=await r.json();
+    return j.content?.map(c=>c.text||"").join("")||"Sin respuesta.";
+  }catch{return"Error de conexión.";}
+}
+
+async function genInformeIA(tipo){
+  const allS=LIDERES.map(l=>({...zonaSt(l.id),L:l}));
+  const resumen=allS.map(s=>`${s.L.z} (${s.L.n}): IGI=${s.avg} E1=${s.e1} E2=${s.e2} E3=${s.e3} Fuertes=${s.f} Medias=${s.m} Débiles=${s.db} Visitas=${s.visitas_total} AccPend=${s.acciones_pend} Eval=${s.comp}%`).join("\n");
+  const tAg=Object.values(AGENCIAS).reduce((a,z)=>a+z.length,0);
+  let prompt="";
+  if(tipo==="semanal"){
+    abrirModalIA("⚡ Análisis Semanal IA","Red Ecuador · "+new Date().toLocaleDateString("es-EC"));
+    prompt=`Eres director de operaciones de una red de joyerías/casas de empeño en Ecuador. Analiza el pulso semanal con estos datos de las 10 zonas (${tAg} agencias):\n\n${resumen}\n\nEjes: Capacidad Interna 40%, Condiciones Externas 25%, Tareas Operativas 35%. Escala 1-5.\n\nGenera un ANÁLISIS SEMANAL EJECUTIVO con exactamente estas secciones:\n\n📊 ESTADO DE LA RED (2-3 oraciones con el panorama general)\n\n🏆 ZONAS DESTACADAS (Top 3 con razón específica)\n\n🔴 ZONAS PRIORITARIAS (Las que necesitan atención urgente esta semana, con causa y acción concreta)\n\n⚡ 3 ACCIONES INMEDIATAS (Lo más importante que debe hacer el Director esta semana, con responsable y plazo)\n\n📋 AGENDA SUGERIDA para la reunión del jueves (3 puntos clave a tratar)\n\nSé directo, usa los nombres de zona, y que cada recomendación sea accionable en 7 días.`;
+  } else {
+    abrirModalIA("📋 Informe Mensual Estratégico IA","Red Ecuador · "+new Date().toLocaleDateString("es-EC",{month:"long",year:"numeric"}));
+    prompt=`Eres director de estrategia de una red de joyerías/casas de empeño en Ecuador. Genera el INFORME MENSUAL ESTRATÉGICO completo con datos de 10 zonas (${tAg} agencias):\n\n${resumen}\n\nEjes: Capacidad Interna 40%, Condiciones Externas 25%, Tareas Operativas 35%. Escala 1-5. Débil<2.5, Media 2.5-4, Fuerte≥4.\n\nGenera informe con estas secciones:\n\n📊 RESUMEN EJECUTIVO (Estado general de la red, IGI promedio, tendencia)\n\n🔍 ANÁLISIS POR EJE (¿Qué eje es más débil en la red? ¿Por qué? ¿Qué implica?)\n\n🗺️ ANÁLISIS POR REGIÓN (Patrones geográficos o por zona que llamen la atención)\n\n🏆 RECONOCIMIENTOS (Top 3 zonas con mejor desempeño y por qué)\n\n⚠️ ZONAS CRÍTICAS (Las que más preocupan con plan de rescate específico)\n\n🎯 PLAN DE ACCIÓN MENSUAL (5 iniciativas estratégicas con responsable, plazo e indicador de éxito)\n\n📈 METAS SUGERIDAS para el próximo mes (IGI objetivo por zona débil)\n\nSé estratégico, profundo y usa los nombres reales de zona y líder.`;
+  }
+  const resp=await llamarIA(prompt);
+  document.getElementById("modal-ia-body").textContent=resp;
+}
+
+async function genRetroIA(lid_r){
+  const L=LIDERES.find(l=>l.id===lid_r);const zs=zonaSt(lid_r);
+  const data=DB[lid_r];
+  const resAgs=data.ags.map(ag=>{const{p1,p2,p3,t,nv:n}=agSt(ag);return`[${ag.cod}] ${ag.nom}: IGI=${t} Nivel=${n.l} E1=${p1} E2=${p2} E3=${p3}`;}).join("\n");
+  abrirModalIA("✨ Sugerencia de Retroalimentación IA",`Para ${L.n} — ${L.z}`);
+  const prompt=`Eres director de zona. Necesitas dar retroalimentación constructiva y motivadora a ${L.n}, líder de ${L.z}. Datos de su zona:\n\nIGI: ${zs.avg} | Fuertes: ${zs.f} | Medias: ${zs.m} | Débiles: ${zs.db} | Visitas: ${zs.visitas_total} | Completitud: ${zs.comp}%\n\nAgencias:\n${resAgs}\n\nEscribe una retroalimentación directa y equilibrada con:\n\n✅ FORTALEZAS (2-3 cosas concretas que está haciendo bien)\n🎯 OPORTUNIDADES (2-3 áreas específicas de mejora con los datos que lo sustentan)\n📌 LO QUE LE PIDO (2-3 compromisos concretos para el próximo mes)\n📈 META IGI (número específico que debería alcanzar el próximo mes, justificado)\n\nTono: directo, constructivo, sin rodeos. Como un buen director que confía en su líder.`;
+  const resp=await llamarIA(prompt);
+  document.getElementById("modal-ia-body").textContent=resp;
+}
+
+async function genAgendaIA(){
+  const allS=LIDERES.map(l=>({...zonaSt(l.id),L:l}));
+  const criticas=allS.filter(s=>s.avg>0&&s.avg<2.5).map(s=>s.L.z).join(", ")||"ninguna";
+  const sinVisitas=allS.filter(s=>s.visitas_total===0).map(s=>s.L.z).join(", ")||"ninguna";
+  const accTotal=allS.reduce((a,s)=>a+s.acciones_pend,0);
+  abrirModalIA("📅 Agenda IA para Reunión Virtual","Generando agenda personalizada...");
+  const prompt=`Eres director de una red de joyerías. Genera la agenda para la reunión virtual semanal de 45 minutos con los 10 líderes zonales.\n\nContexto actual:\n- Zonas críticas (IGI<2.5): ${criticas}\n- Zonas sin visitas registradas: ${sinVisitas}\n- Acciones pendientes en la red: ${accTotal}\n- Total zonas: 10 | Total agencias: 101\n\nGenera una AGENDA EJECUTIVA con:\n1. Estructura minuto a minuto (5 bloques)\n2. Preguntas específicas que el director debe hacer\n3. Punto de reconocimiento (quién y por qué)\n4. Punto crítico a resolver (con datos)\n5. Compromisos que se deben tomar al cerrar\n6. Frase de cierre motivadora\n\nQue sea práctica, sin relleno, para un director ocupado.`;
+  const resp=await llamarIA(prompt);
+  document.getElementById("modal-ia-body").textContent=resp;
+}
+
 async function openDiag(id){
   const L=LIDERES.find(l=>l.id===id);const data=DB[id];
-  document.getElementById("modal-sub").textContent=`${L.z} · ${L.n}`;
-  document.getElementById("modal-body").textContent="⏳ Analizando datos de la zona...";
-  document.getElementById("modal-diag").style.display="flex";
+  abrirModalIA("Diagnóstico IA",`${L.z} · ${L.n}`);
   const res=data.ags.map(ag=>{const{p1,p2,p3,t,nv:n}=agSt(ag);return`[${ag.cod}] ${ag.nom}: IGI=${t} Nivel=${n.l} E1=${p1} E2=${p2} E3=${p3}${ag.accion?" | Acción: "+ag.accion:""}`;}).join("\n");
-  const totalVisitas=data.visitas?Object.values(data.visitas).reduce((a,v)=>a+v.length,0):0;
-  const prompt=`Eres consultor experto en redes de joyerías/casas de empeño. Analiza los IGI de ${L.z}, liderada por ${L.n} en Ecuador. Total visitas registradas: ${totalVisitas}.\n\n${res}\n\nEjes: Capacidad Interna 40%, Externas 25%, Tareas 35%. Escala 1–5. Débil<2.5, Media 2.5–4, Fuerte≥4.\n\n1. RESUMEN EJECUTIVO\n2. FORTALEZAS (máx 3)\n3. BRECHAS CRÍTICAS (con códigos de agencia)\n4. RECOMENDACIONES (3 acciones con plazo)\n5. AGENCIAS PRIORITARIAS\n6. META IGI sugerida\n\nSé directo y usa los códigos.`;
-  try{
-    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1200,messages:[{role:"user",content:prompt}]})});
-    const j=await r.json();
-    document.getElementById("modal-body").textContent=j.content?.map(c=>c.text||"").join("")||"Sin respuesta.";
-  }catch{document.getElementById("modal-body").textContent="Error de conexión.";}
+  const prompt=`Diagnóstico de ${L.z} (${L.n}) Ecuador. Visitas: ${zonaSt(id).visitas_total}.\n\n${res}\n\nEjes: Cap.Interna 40%, Externas 25%, Tareas 35%. Escala 1-5.\n1. RESUMEN EJECUTIVO\n2. FORTALEZAS (máx 3)\n3. BRECHAS CRÍTICAS (con códigos)\n4. RECOMENDACIONES (3 con plazo)\n5. AGENCIAS PRIORITARIAS\n6. META IGI`;
+  const resp=await llamarIA(prompt);
+  document.getElementById("modal-ia-body").textContent=resp;
+}
+
+function verHistorialRetro(lid_r){
+  const L=LIDERES.find(l=>l.id===lid_r);const historial=DB[lid_r]?.retro_director?.historial||[];
+  abrirModalIA(`Historial de Retroalimentaciones`,`${L.z} · ${L.n} — ${historial.length} registro(s)`);
+  if(!historial.length){document.getElementById("modal-ia-body").textContent="Sin historial aún.";return;}
+  const texto=historial.map((r,i)=>`─── Retroalimentación #${i+1} — ${r.fecha_guardado||r.fecha} ───\n✅ Fortalezas: ${r.fortalezas||"—"}\n🎯 Oportunidades: ${r.oportunidades||"—"}\n📌 Me pide: ${r.compromisos_dir||"—"}\n📈 Meta IGI: ${r.meta_igi||"—"}`).join("\n\n");
+  document.getElementById("modal-ia-body").textContent=texto;
 }
 
 // ══════════════════════════════════════════════════════
@@ -707,9 +800,7 @@ async function openDiag(id){
 async function init(){
   DB=initDB();
   document.getElementById("btn-dir").classList.add("active");
-  renderDir();
-  await dbLoad();
-  renderDir();
+  renderDir();await dbLoad();renderDir();
 }
 init();
 </script>
