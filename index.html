@@ -68,7 +68,11 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 .check-item input[type=checkbox]{width:16px;height:16px;cursor:pointer;flex-shrink:0}
 .ritual-box{background:#fffdf0;border:1px solid #f0e68c;border-radius:8px;padding:12px;margin-bottom:10px}
 .ritual-num{width:24px;height:24px;border-radius:50%;background:#534AB7;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;margin-right:6px;flex-shrink:0}
-.compromiso-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:6px;margin-bottom:6px;align-items:center}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid #534AB7;background:#fff;transition:all .2s}
+.pin-dot.filled{background:#534AB7}
+.pin-key{padding:14px;border-radius:10px;border:1px solid #eee;background:#f9f9ff;cursor:pointer;font-size:18px;font-weight:500;color:#1a1060;transition:all .15s}
+.pin-key:hover{background:#EEEDFE;border-color:#534AB7}
+.pin-key:active{transform:scale(.95)}
 /* DIRECTOR ESTRATÉGICO */
 .informe-section{background:#fff;border:1px solid #e0dff8;border-radius:10px;padding:16px;margin-bottom:14px}
 .informe-title{font-size:14px;font-weight:600;color:#1a1060;margin-bottom:12px;display:flex;align-items:center;gap:8px;border-bottom:2px solid #EEEDFE;padding-bottom:8px}
@@ -84,27 +88,63 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 </style>
 </head>
 <body>
-<div class="nav">
+<!-- PANTALLA DE LOGIN -->
+<div id="login-screen" style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1060 0%,#2d2080 60%,#534AB7 100%);padding:1rem">
+  <div style="background:#fff;border-radius:16px;padding:2rem;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-size:40px;margin-bottom:8px">📊</div>
+    <div style="font-size:18px;font-weight:600;color:#1a1060;margin-bottom:4px">Plataforma IGI</div>
+    <div style="font-size:12px;color:#888;margin-bottom:24px">Red Ecuador · Acceso seguro</div>
+    <div style="font-size:12px;color:#444;margin-bottom:8px;text-align:left;font-weight:500">Ingresa tu PIN de acceso</div>
+    <div id="pin-display" style="display:flex;justify-content:center;gap:10px;margin-bottom:20px">
+      <div class="pin-dot" id="d1"></div>
+      <div class="pin-dot" id="d2"></div>
+      <div class="pin-dot" id="d3"></div>
+      <div class="pin-dot" id="d4"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px">
+      <button class="pin-key" onclick="pinPress('1')">1</button>
+      <button class="pin-key" onclick="pinPress('2')">2</button>
+      <button class="pin-key" onclick="pinPress('3')">3</button>
+      <button class="pin-key" onclick="pinPress('4')">4</button>
+      <button class="pin-key" onclick="pinPress('5')">5</button>
+      <button class="pin-key" onclick="pinPress('6')">6</button>
+      <button class="pin-key" onclick="pinPress('7')">7</button>
+      <button class="pin-key" onclick="pinPress('8')">8</button>
+      <button class="pin-key" onclick="pinPress('9')">9</button>
+      <button class="pin-key" onclick="pinClear()" style="background:#f5f5f5;color:#666;font-size:11px">Borrar</button>
+      <button class="pin-key" onclick="pinPress('0')">0</button>
+      <button class="pin-key" onclick="pinEnter()" style="background:#1a1060;color:#fff">✓</button>
+    </div>
+    <div id="pin-error" style="font-size:12px;color:#c00;min-height:18px;margin-top:4px"></div>
+  </div>
+</div>
+
+<!-- NAVBAR (oculto hasta login) -->
+<div class="nav" id="main-nav" style="display:none">
   <div class="nav-top">
     <div class="nav-title">📊 Plataforma IGI · Ecuador</div>
     <span id="sync-badge" class="sync sync-ok">✓ Listo</span>
-    <button style="background:rgba(255,255,255,.2);border:none;color:#fff;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px" onclick="toggleMenu()">☰ Menú</button>
+    <span id="nav-user" style="font-size:11px;color:#FFD700;font-weight:500"></span>
+    <button style="background:rgba(255,255,255,.2);border:none;color:#fff;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px" onclick="cerrarSesion()">🔒 Salir</button>
   </div>
-  <div class="nav-btns" id="nav-btns" style="display:none">
-    <button class="nav-btn" id="btn-dir" onclick="goVista('director')">👤 Director</button>
-    <button class="nav-btn" id="btn-l1"  onclick="goVista('lider',1)">Harol Bedoya</button>
-    <button class="nav-btn" id="btn-l2"  onclick="goVista('lider',2)">Oswaldo Rincon</button>
-    <button class="nav-btn" id="btn-l3"  onclick="goVista('lider',3)">Pablo Hernandez</button>
-    <button class="nav-btn" id="btn-l4"  onclick="goVista('lider',4)">Alfredo Segura</button>
-    <button class="nav-btn" id="btn-l5"  onclick="goVista('lider',5)">Jefferson Luna</button>
-    <button class="nav-btn" id="btn-l6"  onclick="goVista('lider',6)">Jorge Higuita</button>
-    <button class="nav-btn" id="btn-l7"  onclick="goVista('lider',7)">Wilmar Sanchez</button>
-    <button class="nav-btn" id="btn-l8"  onclick="goVista('lider',8)">Atilio Manzano</button>
-    <button class="nav-btn" id="btn-l9"  onclick="goVista('lider',9)">Efren Londoño</button>
-    <button class="nav-btn" id="btn-l10" onclick="goVista('lider',10)">Ivan D. Sanchez</button>
+  <!-- tabs director -->
+  <div id="nav-dir-tabs" class="nav-btns" style="display:none">
+    <button class="nav-btn active" id="btn-dir" onclick="setTabD('pulso');renderDir()">⚡ Pulso</button>
+    <button class="nav-btn" onclick="setTabD('informe');renderDir()">📋 Informe</button>
+    <button class="nav-btn" onclick="setTabD('retro');renderDir()">💬 Retro</button>
+    <button class="nav-btn" onclick="setTabD('agenda');renderDir()">📅 Agenda</button>
+    <button class="nav-btn" onclick="setTabD('cadencia');renderDir()">🗓 Cadencia</button>
+    <button class="nav-btn" onclick="setTabD('alertas');renderDir()">🔴 Alertas</button>
+  </div>
+  <!-- tabs lider -->
+  <div id="nav-lid-tabs" class="nav-btns" style="display:none">
+    <button class="nav-btn active" onclick="setTabL('eval');render()">📋 Evaluación</button>
+    <button class="nav-btn" onclick="setTabL('visitas');render()">🏪 Visitas</button>
+    <button class="nav-btn" onclick="setTabL('resumen');render()">📊 Resumen</button>
+    <button class="nav-btn" onclick="setTabL('plan');render()">🎯 Plan</button>
   </div>
 </div>
-<div class="main" id="app"></div>
+<div class="main" id="app" style="display:none"></div>
 
 <!-- MODAL IA -->
 <div id="modal-ia" class="modal-ov" style="display:none">
@@ -119,8 +159,73 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 
 <script>
 // ══════════════════════════════════════════════════════
-// CONFIGURACIÓN
+// SISTEMA DE ACCESO CON PIN
 // ══════════════════════════════════════════════════════
+const ACCESOS = {
+  "8521": {rol:"director", nombre:"Director General"},
+  "1001": {rol:"lider", id:1,  nombre:"Harol Bedoya"},
+  "1002": {rol:"lider", id:2,  nombre:"Oswaldo Rincon"},
+  "1003": {rol:"lider", id:3,  nombre:"Pablo Hernandez"},
+  "1004": {rol:"lider", id:4,  nombre:"Alfredo Segura"},
+  "1005": {rol:"lider", id:5,  nombre:"Jefferson Luna"},
+  "1006": {rol:"lider", id:6,  nombre:"Jorge Higuita"},
+  "1007": {rol:"lider", id:7,  nombre:"Wilmar Sanchez"},
+  "1008": {rol:"lider", id:8,  nombre:"Atilio Manzano"},
+  "1009": {rol:"lider", id:9,  nombre:"Efren Londoño"},
+  "1010": {rol:"lider", id:10, nombre:"Ivan Dario Sanchez"},
+};
+
+let pinActual = "";
+let usuarioActivo = null;
+
+function pinPress(n){
+  if(pinActual.length>=4) return;
+  pinActual+=n;
+  actualizarDots();
+  if(pinActual.length===4) setTimeout(pinEnter,200);
+}
+function pinClear(){pinActual=pinActual.slice(0,-1);actualizarDots();document.getElementById("pin-error").textContent="";}
+function actualizarDots(){
+  for(let i=1;i<=4;i++){const d=document.getElementById("d"+i);if(d)d.className="pin-dot"+(i<=pinActual.length?" filled":"");}
+}
+async function pinEnter(){
+  const acc=ACCESOS[pinActual];
+  if(!acc){
+    document.getElementById("pin-error").textContent="PIN incorrecto. Inténtalo de nuevo.";
+    pinActual="";actualizarDots();return;
+  }
+  usuarioActivo=acc;
+  document.getElementById("login-screen").style.display="none";
+  document.getElementById("main-nav").style.display="block";
+  document.getElementById("app").style.display="block";
+  document.getElementById("nav-user").textContent="👤 "+acc.nombre;
+  if(acc.rol==="director"){
+    document.getElementById("nav-dir-tabs").style.display="flex";
+    document.getElementById("nav-lid-tabs").style.display="none";
+    vista="director";tabD="pulso";
+  } else {
+    document.getElementById("nav-dir-tabs").style.display="none";
+    document.getElementById("nav-lid-tabs").style.display="flex";
+    vista="lider";lid=acc.id;agI=0;tabL="eval";
+  }
+  await dbLoad();render();
+}
+function cerrarSesion(){
+  usuarioActivo=null;pinActual="";actualizarDots();
+  document.getElementById("pin-error").textContent="";
+  document.getElementById("login-screen").style.display="flex";
+  document.getElementById("main-nav").style.display="none";
+  document.getElementById("app").style.display="none";
+  document.getElementById("app").innerHTML="";
+}
+
+// Teclado físico también funciona
+document.addEventListener("keydown",e=>{
+  if(document.getElementById("login-screen").style.display==="none") return;
+  if(e.key>="0"&&e.key<="9") pinPress(e.key);
+  if(e.key==="Enter") pinEnter();
+  if(e.key==="Backspace") pinClear();
+});
 const JSONBIN_API_KEY = "$2a$10$KGYkOVGllAacjYcGcQTW/uxeTJinwORe5bRNVGe6IMaN4z8ED2Xnu";
 const JSONBIN_BIN_ID  = "6a010195c0954111d80497df";
 
