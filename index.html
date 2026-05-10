@@ -29,14 +29,14 @@ table{width:100%;border-collapse:collapse;font-size:12px}
 th{background:#f5f4fb;color:#534AB7;padding:7px 8px;text-align:left;font-weight:500;font-size:11px;white-space:nowrap}
 td{padding:6px 8px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
 input[type=number]{width:58px;padding:3px 6px;border:1px solid #ddd;border-radius:6px;text-align:center;font-size:13px}
-input[type=text],input[type=date],textarea,select{width:100%;padding:6px 8px;border:1px solid #ddd;border-radius:6px;font-size:12px;background:#fff}
+input[type=text],input[type=date],input[type=time],textarea,select{width:100%;padding:6px 8px;border:1px solid #ddd;border-radius:6px;font-size:12px;background:#fff}
 label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 .field{margin-bottom:8px}
 .btn{padding:6px 14px;border-radius:7px;border:none;cursor:pointer;font-size:12px;font-weight:500}
 .btn-p{background:#534AB7;color:#fff}
 .btn-o{background:#fff;color:#534AB7;border:1px solid #534AB7}
 .btn-sm{padding:3px 10px;font-size:11px}
-.btn-danger{background:#fff;color:#c00;border:1px solid #eee;padding:5px 9px;border-radius:6px;cursor:pointer}
+.btn-danger{background:#fff;color:#c00;border:1px solid #eee;padding:5px 9px;border-radius:6px;cursor:pointer;font-size:12px}
 .ag-btn{padding:5px 8px;border-radius:7px;cursor:pointer;font-size:11px;min-width:88px;text-align:center;border:2px solid transparent}
 .minibar{height:5px;background:#eee;border-radius:3px;margin-top:3px;overflow:hidden}
 .minibar-fill{height:5px;border-radius:3px;transition:width .3s}
@@ -44,14 +44,36 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
 .eje-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:4px}
 .eje-row{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;font-size:12px}
 .modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;padding:12px}
-.modal{background:#fff;border-radius:14px;width:100%;max-width:660px;max-height:88vh;overflow:auto;padding:1.5rem}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:700px;max-height:90vh;overflow:auto;padding:1.5rem}
 .sync{font-size:11px;padding:2px 8px;border-radius:10px}
 .sync-ok{background:#e8f5e9;color:#1a5e20}
 .sync-pend{background:#fff8e1;color:#7c4a00}
 .sync-err{background:#ffebee;color:#8b0000}
 .alert-item{background:#ffebee;border:1px solid #ffcdd2;border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .plan-item{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-@media(max-width:600px){.grid2,.grid3,.grid5{grid-template-columns:1fr 1fr}.eje-grid{grid-template-columns:1fr}}
+/* VISITA */
+.visita-card{background:#fff;border:1px solid #e0dff8;border-radius:10px;padding:14px;margin-bottom:10px}
+.visita-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 14px;background:#f5f4fb;border-radius:8px;margin-bottom:0}
+.visita-header:hover{background:#eeedfc}
+.visita-body{padding-top:12px}
+.seccion{background:#f9f9ff;border-radius:8px;padding:12px;margin-bottom:10px;border-left:3px solid #534AB7}
+.seccion-verde{border-left-color:#0F6E56;background:#f6fff9}
+.seccion-naranja{border-left-color:#85370D;background:#fff8f5}
+.seccion-amarilla{border-left-color:#7c4a00;background:#fffdf0}
+.sec-title{font-size:12px;font-weight:600;margin-bottom:8px;color:#534AB7}
+.sec-title-verde{color:#0F6E56}
+.sec-title-naranja{color:#85370D}
+.sec-title-amarilla{color:#7c4a00}
+.check-item{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px}
+.check-item input[type=checkbox]{width:16px;height:16px;cursor:pointer;flex-shrink:0}
+.historial-item{background:#f5f4fb;border-radius:6px;padding:8px 10px;margin-bottom:6px;font-size:12px;cursor:pointer}
+.historial-item:hover{background:#eeedfc}
+.historial-fecha{font-weight:500;color:#534AB7;font-size:11px}
+.compromiso-row{display:grid;grid-template-columns:2fr 2fr 1fr;gap:6px;margin-bottom:6px;align-items:center}
+.estado-btn{padding:3px 8px;border-radius:12px;border:none;cursor:pointer;font-size:11px;font-weight:500}
+.ritual-box{background:#fffdf0;border:1px solid #f0e68c;border-radius:8px;padding:12px;margin-bottom:10px}
+.ritual-num{width:24px;height:24px;border-radius:50%;background:#534AB7;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;margin-right:6px;flex-shrink:0}
+@media(max-width:600px){.grid2,.grid3,.grid5{grid-template-columns:1fr 1fr}.eje-grid{grid-template-columns:1fr}.compromiso-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -85,21 +107,20 @@ label{font-size:11px;color:#888;display:block;margin-bottom:3px}
       <div><div style="font-size:15px;font-weight:500;color:#534AB7">Diagnóstico IA</div><div id="modal-sub" style="font-size:12px;color:#888"></div></div>
       <button onclick="document.getElementById('modal-diag').style.display='none'" style="border:none;background:none;font-size:22px;cursor:pointer;color:#888">✕</button>
     </div>
-    <div id="modal-body" style="font-size:13px;line-height:1.75;white-space:pre-wrap;color:#222">Analizando...</div>
+    <div id="modal-body" style="font-size:13px;line-height:1.75;white-space:pre-wrap;color:#222"></div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════
-//  CONFIGURACIÓN — JSONBin.io como base de datos compartida
-//  Instrucciones para configurar en 3 minutos (ver abajo)
-// ══════════════════════════════════════════════════════════════════
-const JSONBIN_API_KEY = "$2a$10$KGYkOVGllAacjYcGcQTW/uxeTJinwORe5bRNVGe6IMaN4z8ED2Xnu";   // Master Key de jsonbin.io
-const JSONBIN_BIN_ID  = "6a010195c0954111d80497df";    // ID del bin que creaste
+// ══════════════════════════════════════════════════════
+// CONFIGURACIÓN JSONBin
+// ══════════════════════════════════════════════════════
+const JSONBIN_API_KEY = "$2a$10$KGYkOVGllAacjYcGcQTW/uxeTJinwORe5bRNVGe6IMaN4z8ED2Xnu";
+const JSONBIN_BIN_ID  = "6a010195c0954111d80497df";
 
-// ══════════════════════════════════════════════════════════════════
-//  DATOS MAESTROS
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// DATOS MAESTROS
+// ══════════════════════════════════════════════════════
 const LIDERES=[
   {id:1,n:"Harol Bedoya",z:"Zona Norte"},
   {id:2,n:"Oswaldo Rincon",z:"Zona Sur"},
@@ -136,77 +157,80 @@ const EJE3G=[
 const EJE3=EJE3G.flatMap(g=>g.v);
 const TV=EJE1.length+EJE2.length+EJE3.length;
 
-// ══════════════════════════════════════════════════════════════════
-//  ESTADO
-// ══════════════════════════════════════════════════════════════════
-let DB={};       // todos los datos, cargados desde JSONBin
-let vista="director", lid=1, agI=0, tabL="eval", tabD="zonas";
-let saveTimer=null, menuOpen=false;
+// ══════════════════════════════════════════════════════
+// ESTADO
+// ══════════════════════════════════════════════════════
+let DB={};
+let vista="director",lid=1,agI=0,tabL="eval",tabD="zonas";
+let menuOpen=false,dbSaveTimer=null;
 
-function mkAg(c,n){return {cod:c,nom:n,admin:"",eje1:Array(EJE1.length).fill(0),eje2:Array(EJE2.length).fill(0),eje3:Array(EJE3.length).fill(0),obs:"",accion:"",estrategia:"",fecha:""};}
-function mkZona(id){return {ags:AGENCIAS[id].map(([c,n])=>mkAg(c,n)),plan:[],obs:"",mes:new Date().toISOString().slice(0,7)};}
+function mkAg(c,n){return{cod:c,nom:n,admin:"",eje1:Array(EJE1.length).fill(0),eje2:Array(EJE2.length).fill(0),eje3:Array(EJE3.length).fill(0),obs:"",accion:"",estrategia:"",fecha:""};}
+function mkVisita(){
+  return{
+    id:Date.now(),fecha:new Date().toISOString().slice(0,10),
+    hora_ini:"",hora_fin:"",
+    // Antes
+    objetivo:"",
+    // Durante - Qué pasa / Desafío
+    que_pasa:"",desafio:"",
+    // Checklist
+    check:{
+      visito:false,reviso_resultados:false,ejecuto_activacion:false,
+      feedback:false,reconocio:false,detecto_brecha:false,
+      dejo_tareas:false,pidio_evidencia:false,seguimiento_ant:false
+    },
+    // Decisión
+    decision:"",
+    // Acciones acordadas
+    acciones:[{tema:"",decision:"",accion:"",responsable:"",fecha:"",estado:"Pendiente"}],
+    // Reflexión
+    reflexion:"",
+    // Compromisos
+    compromisos:[{compromiso:"",accion:"",estado:"Pendiente",evidencia:""}],
+    // Ritual seguimiento
+    ritual:{semana:"",dijimos:"",se_hizo:"",aprendimos:"",acuerdos:""},
+    abierta:true
+  };
+}
+function mkZona(id){return{ags:AGENCIAS[id].map(([c,n])=>mkAg(c,n)),plan:[],obs:"",mes:new Date().toISOString().slice(0,7),visitas:{}};}
 function initDB(){const d={};LIDERES.forEach(l=>{d[l.id]=mkZona(l.id);});return d;}
 
-// ══════════════════════════════════════════════════════════════════
-//  JSONBIN  (base de datos compartida, sin CORS)
-// ══════════════════════════════════════════════════════════════════
-function configured(){return JSONBIN_API_KEY&&!JSONBIN_API_KEY.includes("PEGA")&&JSONBIN_BIN_ID&&!JSONBIN_BIN_ID.includes("PEGA");}
-
+// ══════════════════════════════════════════════════════
+// JSONBIN
+// ══════════════════════════════════════════════════════
+function cfgOk(){return JSONBIN_API_KEY&&!JSONBIN_API_KEY.includes("PEGA")&&JSONBIN_BIN_ID&&!JSONBIN_BIN_ID.includes("PEGA");}
 async function dbLoad(){
-  if(!configured()){
-    // Sin config: solo localStorage
-    try{const s=localStorage.getItem("igi_db");if(s)DB=JSON.parse(s);}catch{}
-    LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});
-    return;
-  }
+  if(!cfgOk()){try{const s=localStorage.getItem("igi_db");if(s)DB=JSON.parse(s);}catch{}LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});return;}
   setSy("pend");
   try{
     const r=await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`,{headers:{"X-Master-Key":JSONBIN_API_KEY,"X-Bin-Meta":"false"}});
     const j=await r.json();
-    if(j&&typeof j==="object"){
-      DB=j;
-      LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});
-    }
+    if(j&&typeof j==="object"){DB=j;LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});}
     setSy("ok");
   }catch{setSy("err");}
 }
-
-let dbSaveTimer=null;
 async function dbSave(){
-  if(!configured()){
-    try{localStorage.setItem("igi_db",JSON.stringify(DB));}catch{}
-    return;
-  }
+  if(!cfgOk()){try{localStorage.setItem("igi_db",JSON.stringify(DB));}catch{}return;}
   setSy("pend");
   clearTimeout(dbSaveTimer);
   dbSaveTimer=setTimeout(async()=>{
     try{
-      await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,{
-        method:"PUT",
-        headers:{"Content-Type":"application/json","X-Master-Key":JSONBIN_API_KEY},
-        body:JSON.stringify(DB)
-      });
+      await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,{method:"PUT",headers:{"Content-Type":"application/json","X-Master-Key":JSONBIN_API_KEY},body:JSON.stringify(DB)});
       setSy("ok");
     }catch{setSy("err");}
   },1500);
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  CÁLCULOS
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// CÁLCULOS
+// ══════════════════════════════════════════════════════
 const pr=a=>{const v=a.filter(x=>x>0);return v.length?+(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2):0;};
 const igi=(e1,e2,e3)=>(e1>0&&e2>0&&e3>0)?+(e1*.4+e2*.25+e3*.35).toFixed(2):0;
-function nv(v){
-  if(!v)return{l:"Sin datos",c:"#888",bg:"#f5f5f5",s:"⬜"};
-  if(v>=4)return{l:"Fuerte",c:"#1a5e20",bg:"#e8f5e9",s:"🟢"};
-  if(v>=2.5)return{l:"Media",c:"#7c4a00",bg:"#fff8e1",s:"🟡"};
-  return{l:"Débil",c:"#8b0000",bg:"#ffebee",s:"🔴"};
-}
+function nv(v){if(!v)return{l:"Sin datos",c:"#888",bg:"#f5f5f5",s:"⬜"};if(v>=4)return{l:"Fuerte",c:"#1a5e20",bg:"#e8f5e9",s:"🟢"};if(v>=2.5)return{l:"Media",c:"#7c4a00",bg:"#fff8e1",s:"🟡"};return{l:"Débil",c:"#8b0000",bg:"#ffebee",s:"🔴"};}
 function agSt(ag){const p1=pr(ag.eje1),p2=pr(ag.eje2),p3=pr(ag.eje3),t=igi(p1,p2,p3);return{p1,p2,p3,t,nv:nv(t)};}
 function zonaSt(id){
   const d=DB[id];if(!d)return{avg:0,f:0,m:0,db:0,comp:0,e1:0,e2:0,e3:0};
-  const ss=d.ags.map(a=>agSt(a));
-  const ig=ss.map(s=>s.t).filter(x=>x>0);
+  const ss=d.ags.map(a=>agSt(a));const ig=ss.map(s=>s.t).filter(x=>x>0);
   const avg=ig.length?+(ig.reduce((a,b)=>a+b,0)/ig.length).toFixed(2):0;
   const done=d.ags.reduce((acc,a)=>acc+a.eje1.filter(x=>x>0).length+a.eje2.filter(x=>x>0).length+a.eje3.filter(x=>x>0).length,0);
   const e1v=ss.map(s=>s.p1).filter(x=>x>0),e2v=ss.map(s=>s.p2).filter(x=>x>0),e3v=ss.map(s=>s.p3).filter(x=>x>0);
@@ -217,57 +241,74 @@ function zonaSt(id){
     e3:e3v.length?+(e3v.reduce((a,b)=>a+b,0)/e3v.length).toFixed(2):0};
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  UI HELPERS
-// ══════════════════════════════════════════════════════════════════
-function setSy(s){const el=document.getElementById("sync-badge");if(!el)return;
-  if(s==="ok"){el.className="sync sync-ok";el.textContent="✓ Guardado";}
-  else if(s==="pend"){el.className="sync sync-pend";el.textContent="⏳ Guardando...";}
-  else{el.className="sync sync-err";el.textContent="⚠ Sin conexión";}
-}
-const bdg=v=>{const n=nv(v);return `<span class="badge" style="background:${n.bg};color:${n.c}">${n.s} ${n.l}</span>`;};
+// ══════════════════════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════════════════════
+function setSy(s){const el=document.getElementById("sync-badge");if(!el)return;if(s==="ok"){el.className="sync sync-ok";el.textContent="✓ Guardado";}else if(s==="pend"){el.className="sync sync-pend";el.textContent="⏳ Guardando...";}else{el.className="sync sync-err";el.textContent="⚠ Sin conexión";}}
+const bdg=v=>{const n=nv(v);return`<span class="badge" style="background:${n.bg};color:${n.c}">${n.s} ${n.l}</span>`;};
 const mbar=(v,mx=5)=>{const p=(v/mx)*100,n=nv(v);return`<div class="minibar"><div class="minibar-fill" style="width:${p}%;background:${n.c}"></div></div>`;};
-const colval=(v)=>`<span style="background:${nv(v).bg};color:${nv(v).c};padding:1px 7px;border-radius:5px">${v||"—"}</span>`;
+const cv=v=>`<span style="background:${nv(v).bg};color:${nv(v).c};padding:1px 7px;border-radius:5px">${v||"—"}</span>`;
+function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 
-// ══════════════════════════════════════════════════════════════════
-//  NAVEGACIÓN
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// NAVEGACIÓN
+// ══════════════════════════════════════════════════════
 function toggleMenu(){menuOpen=!menuOpen;document.getElementById("nav-btns").style.display=menuOpen?"flex":"none";}
 async function goVista(v,id){
   vista=v;if(id){lid=id;agI=0;tabL="eval";}
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
   document.getElementById(v==="director"?"btn-dir":"btn-l"+lid)?.classList.add("active");
-  await dbLoad();
-  render();
+  await dbLoad();render();
   if(window.innerWidth<600){menuOpen=false;document.getElementById("nav-btns").style.display="none";}
 }
 function setTabD(t){tabD=t;render();}
 function setTabL(t){tabL=t;render();}
 function setAg(i){agI=i;render();}
 
-// ══════════════════════════════════════════════════════════════════
-//  MUTACIONES
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// MUTACIONES IGI
+// ══════════════════════════════════════════════════════
 function updEje(eje,i,v){DB[lid].ags[agI][eje][i]=v;dbSave();renderIGIBox();}
 function updAg(f,v){DB[lid].ags[agI][f]=v;dbSave();}
 function updZona(f,v){DB[lid][f]=v;dbSave();}
 function addPlan(){DB[lid].plan.push({obj:"",accion:"",resp:"",fecha:"",av:0,estado:"Pendiente"});dbSave();render();}
-function updPlan(i,f,v){DB[lid].plan[i][f]=f==="av"?+v:v;dbSave();document.getElementById("av"+i)&&renderAvBar(i);}
+function updPlan(i,f,v){DB[lid].plan[i][f]=f==="av"?+v:v;dbSave();}
 function delPlan(i){DB[lid].plan.splice(i,1);dbSave();render();}
-function renderAvBar(i){
-  const item=DB[lid].plan[i];
-  const el=document.getElementById("av"+i);
-  if(el)el.textContent="Avance: "+item.av+"%";
-  const bar=document.getElementById("avbar"+i);
-  if(bar){bar.style.width=item.av+"%";bar.style.background=item.av>=80?"#1a5e20":item.av>=40?"#f57f17":"#c62828";}
-}
 
-// ══════════════════════════════════════════════════════════════════
-//  RENDER
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// MUTACIONES VISITAS
+// ══════════════════════════════════════════════════════
+function getVisitas(agCod){if(!DB[lid].visitas)DB[lid].visitas={};if(!DB[lid].visitas[agCod])DB[lid].visitas[agCod]=[];return DB[lid].visitas[agCod];}
+function addVisita(){
+  const ag=DB[lid].ags[agI];
+  if(!DB[lid].visitas)DB[lid].visitas={};
+  if(!DB[lid].visitas[ag.cod])DB[lid].visitas[ag.cod]=[];
+  DB[lid].visitas[ag.cod].unshift(mkVisita());
+  dbSave();render();
+}
+function updVisita(agCod,vi,field,val){
+  const visitas=getVisitas(agCod);
+  if(field.includes(".")){const[a,b]=field.split(".");visitas[vi][a][b]=val;}
+  else visitas[vi][field]=val;
+  dbSave();
+}
+function updCheck(agCod,vi,key,val){getVisitas(agCod)[vi].check[key]=val;dbSave();}
+function addAccionV(agCod,vi){getVisitas(agCod)[vi].acciones.push({tema:"",decision:"",accion:"",responsable:"",fecha:"",estado:"Pendiente"});dbSave();render();}
+function updAccionV(agCod,vi,ai,f,v){getVisitas(agCod)[vi].acciones[ai][f]=v;dbSave();}
+function delAccionV(agCod,vi,ai){getVisitas(agCod)[vi].acciones.splice(ai,1);dbSave();render();}
+function addCompr(agCod,vi){getVisitas(agCod)[vi].compromisos.push({compromiso:"",accion:"",estado:"Pendiente",evidencia:""});dbSave();render();}
+function updCompr(agCod,vi,ci,f,v){getVisitas(agCod)[vi].compromisos[ci][f]=v;dbSave();}
+function delCompr(agCod,vi,ci){getVisitas(agCod)[vi].compromisos.splice(ci,1);dbSave();render();}
+function toggleVisita(agCod,vi){const v=getVisitas(agCod);v[vi].abierta=!v[vi].abierta;render();}
+function delVisita(agCod,vi){if(!confirm("¿Eliminar esta visita?"))return;getVisitas(agCod).splice(vi,1);dbSave();render();}
+function updRitual(agCod,vi,f,v){getVisitas(agCod)[vi].ritual[f]=v;dbSave();}
+
+// ══════════════════════════════════════════════════════
+// RENDER PRINCIPAL
+// ══════════════════════════════════════════════════════
 function render(){vista==="director"?renderDir():renderLider();}
 
-// ─── DIRECTOR ───────────────────────────────────────────────────
+// ── DIRECTOR ─────────────────────────────────────────
 function renderDir(){
   const allS=LIDERES.map(l=>({...zonaSt(l.id),L:l,nag:AGENCIAS[l.id].length}));
   const igs=allS.map(s=>s.avg).filter(x=>x>0);
@@ -275,7 +316,6 @@ function renderDir(){
   const nvR=nv(igiR);
   const tF=allS.reduce((a,s)=>a+s.f,0),tM=allS.reduce((a,s)=>a+s.m,0),tD=allS.reduce((a,s)=>a+s.db,0);
   const tAg=Object.values(AGENCIAS).reduce((a,z)=>a+z.length,0);
-
   let h=`<div class="grid5" style="margin-bottom:12px">
     <div class="kpi"><div class="kpi-lbl">Total Agencias</div><div class="kpi-val" style="color:#534AB7">${tAg}</div></div>
     <div class="kpi"><div class="kpi-lbl">Evaluadas</div><div class="kpi-val">${tF+tM+tD}</div></div>
@@ -287,18 +327,17 @@ function renderDir(){
     <div><div style="font-size:11px;color:#888">IGI Promedio Red Ecuador</div>
     <div style="font-size:28px;font-weight:500;color:${nvR.c}">${nvR.s} ${igiR||"—"}</div></div>
     <div style="flex:1;min-width:100px">${mbar(igiR)}<div style="font-size:10px;color:#999;margin-top:3px">Débil &lt;2.5 · Media 2.5–4 · Fuerte ≥4</div></div>
-    <button class="btn btn-p btn-sm" onclick="dbLoad().then(render)">↺ Actualizar datos</button>
+    <button class="btn btn-p btn-sm" onclick="dbLoad().then(render)">↺ Actualizar</button>
   </div>
   <div class="tabs">
     ${["zonas|Por Zona","ranking|Ranking","alertas|🔴 Alertas","seguimiento|Seguimiento"].map(t=>{const[id,lbl]=t.split("|");return`<button class="tab-btn ${tabD===id?"active":""}" onclick="setTabD('${id}')">${lbl}</button>`;}).join("")}
   </div>`;
-
   if(tabD==="zonas"){
-    h+=`<div style="overflow-x:auto"><table><thead><tr><th>Zona</th><th>Líder Zonal</th><th>Ag.</th><th>🟢</th><th>🟡</th><th>🔴</th><th>IGI Zona</th><th>Completitud</th><th>Estado</th><th>Diagnóstico</th></tr></thead><tbody>`;
+    h+=`<div style="overflow-x:auto"><table><thead><tr><th>Zona</th><th>Líder</th><th>Ag.</th><th>🟢</th><th>🟡</th><th>🔴</th><th>IGI</th><th>Completitud</th><th>Visitas</th><th>Estado</th><th>IA</th></tr></thead><tbody>`;
     allS.forEach(s=>{
       const n=nv(s.avg);
-      h+=`<tr>
-        <td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td><td style="text-align:center">${s.nag}</td>
+      const totalVisitas=DB[s.L.id]?.visitas?Object.values(DB[s.L.id].visitas).reduce((a,v)=>a+v.length,0):0;
+      h+=`<tr><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td><td style="text-align:center">${s.nag}</td>
         <td style="text-align:center;color:#1a5e20;font-weight:500">${s.f}</td>
         <td style="text-align:center;color:#7c4a00;font-weight:500">${s.m}</td>
         <td style="text-align:center;color:#8b0000;font-weight:500">${s.db}</td>
@@ -307,6 +346,7 @@ function renderDir(){
           <div style="height:6px;width:55px;background:#eee;border-radius:3px;overflow:hidden">
             <div style="height:6px;width:${s.comp}%;background:${s.comp>=80?"#1a5e20":s.comp>=40?"#f57f17":"#c62828"}"></div></div>
           <span style="font-size:10px;color:#666">${s.comp}%</span></div></td>
+        <td style="text-align:center;color:#534AB7;font-weight:500">${totalVisitas}</td>
         <td>${bdg(s.avg)}</td>
         <td><button class="btn btn-p btn-sm" onclick="openDiag(${s.L.id})">IA ↗</button></td>
       </tr>`;
@@ -314,17 +354,13 @@ function renderDir(){
     h+=`</tbody></table></div>`;
   }
   if(tabD==="ranking"){
-    h+=`<table><thead><tr><th>#</th><th>Zona</th><th>Líder</th><th>IGI</th><th>E1</th><th>E2</th><th>E3</th><th>Fuertes</th><th>Débiles</th><th>Estado</th></tr></thead><tbody>`;
+    h+=`<table><thead><tr><th>#</th><th>Zona</th><th>Líder</th><th>IGI</th><th>E1</th><th>E2</th><th>E3</th><th>🟢</th><th>🔴</th><th>Estado</th></tr></thead><tbody>`;
     [...allS].sort((a,b)=>b.avg-a.avg).forEach((s,i)=>{
       const medal=["🥇","🥈","🥉"][i]||"";const n=nv(s.avg);
-      h+=`<tr style="background:${i<3?"#fffde7":""}">
-        <td><b>${medal||i+1}</b></td><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td>
-        <td><span style="background:${n.bg};color:${n.c};padding:2px 10px;border-radius:6px;font-weight:500;font-size:13px">${s.avg||"—"}</span></td>
-        <td>${colval(s.e1)}</td><td>${colval(s.e2)}</td><td>${colval(s.e3)}</td>
-        <td style="color:#1a5e20;font-weight:500">${s.f}</td>
-        <td style="color:#8b0000;font-weight:500">${s.db}</td>
-        <td>${bdg(s.avg)}</td>
-      </tr>`;
+      h+=`<tr style="background:${i<3?"#fffde7":""}"><td><b>${medal||i+1}</b></td><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td>
+        <td><span style="background:${n.bg};color:${n.c};padding:2px 10px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
+        <td>${cv(s.e1)}</td><td>${cv(s.e2)}</td><td>${cv(s.e3)}</td>
+        <td style="color:#1a5e20;font-weight:500">${s.f}</td><td style="color:#8b0000;font-weight:500">${s.db}</td><td>${bdg(s.avg)}</td></tr>`;
     });
     h+=`</tbody></table>`;
   }
@@ -332,41 +368,39 @@ function renderDir(){
     let alerts=[];
     LIDERES.forEach(l=>{const d=DB[l.id];if(!d)return;d.ags.forEach(ag=>{const t=igi(pr(ag.eje1),pr(ag.eje2),pr(ag.eje3));if(t>0&&t<2.5)alerts.push({l,ag,t});});});
     alerts.sort((a,b)=>a.t-b.t);
-    if(!alerts.length)h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:8px;color:#888">Sin alertas activas ✓</div>`;
-    else alerts.forEach(r=>{h+=`<div class="alert-item">
-      <div><b style="color:#8b0000">${r.ag.nom}</b> <span style="font-size:11px;color:#888">(${r.ag.cod})</span>
+    if(!alerts.length)h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:8px;color:#888">Sin alertas ✓</div>`;
+    else alerts.forEach(r=>{h+=`<div class="alert-item"><div><b style="color:#8b0000">${r.ag.nom}</b> <span style="font-size:11px;color:#888">(${r.ag.cod})</span>
       <div style="font-size:12px;color:#666">${r.l.z} · ${r.l.n}</div>
       ${r.ag.accion?`<div style="font-size:12px;margin-top:2px">Acción: ${r.ag.accion}</div>`:""}</div>
-      <div style="text-align:right"><div style="font-size:24px;font-weight:500;color:#8b0000">${r.t}</div><div style="font-size:11px;color:#888">IGI</div></div>
-    </div>`;});
+      <div style="text-align:right"><div style="font-size:24px;font-weight:500;color:#8b0000">${r.t}</div><div style="font-size:11px;color:#888">IGI</div></div></div>`;});
   }
   if(tabD==="seguimiento"){
-    h+=`<table><thead><tr><th>Zona</th><th>Líder</th><th>IGI</th><th>Evaluadas</th><th>Plan</th><th>Observaciones</th></tr></thead><tbody>`;
+    h+=`<table><thead><tr><th>Zona</th><th>Líder</th><th>IGI</th><th>Evaluadas</th><th>Visitas</th><th>Plan</th><th>Observaciones</th></tr></thead><tbody>`;
     allS.forEach(s=>{
       const d=DB[s.L.id];
       const ev=d?d.ags.filter(a=>igi(pr(a.eje1),pr(a.eje2),pr(a.eje3))>0).length:0;
       const pl=d?d.plan.length:0,plC=d&&pl?d.plan.filter(p=>p.estado==="Completado").length:0;
+      const tv=d?.visitas?Object.values(d.visitas).reduce((a,v)=>a+v.length,0):0;
       const n=nv(s.avg);
       h+=`<tr><td><b>${s.L.z}</b></td><td style="color:#555">${s.L.n}</td>
         <td><span style="background:${n.bg};color:${n.c};padding:2px 8px;border-radius:6px;font-weight:500">${s.avg||"—"}</span></td>
         <td style="text-align:center">${ev}/${s.nag}</td>
-        <td>${pl?`${plC}/${pl} completadas`:"Sin plan"}</td>
-        <td style="font-size:11px;color:#555;max-width:160px">${d?.obs||"—"}</td>
-      </tr>`;
+        <td style="text-align:center;color:#534AB7;font-weight:500">${tv}</td>
+        <td>${pl?`${plC}/${pl} ✓`:"Sin plan"}</td>
+        <td style="font-size:11px;color:#555;max-width:150px">${d?.obs||"—"}</td></tr>`;
     });
     h+=`</tbody></table>`;
   }
   document.getElementById("app").innerHTML=h;
 }
 
-// ─── LÍDER ──────────────────────────────────────────────────────
+// ── LÍDER ─────────────────────────────────────────────
 function renderLider(){
   const L=LIDERES.find(l=>l.id===lid);
-  const data=DB[lid]; if(!data){document.getElementById("app").innerHTML="<div class='card'>Cargando...</div>";return;}
+  const data=DB[lid];if(!data){document.getElementById("app").innerHTML="<div class='card'>Cargando...</div>";return;}
   const zs=zonaSt(lid);const nZ=nv(zs.avg);
   const ini=L.n.split(" ").map(x=>x[0]).slice(0,2).join("");
   const pct=Math.round((data.ags.reduce((acc,a)=>acc+a.eje1.filter(x=>x>0).length+a.eje2.filter(x=>x>0).length+a.eje3.filter(x=>x>0).length,0)/(TV*data.ags.length))*100);
-
   let h=`<div class="card" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
     <div style="width:42px;height:42px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#534AB7;flex-shrink:0">${ini}</div>
     <div style="flex:1"><b>${L.n}</b><div style="font-size:12px;color:#888">${L.z}</div></div>
@@ -376,9 +410,8 @@ function renderLider(){
     <button class="btn btn-p btn-sm" onclick="openDiag(${lid})">Diagnóstico IA ↗</button>
   </div>
   <div class="tabs">
-    ${[["eval","Evaluación"],["resumen","Resumen Zona"],["plan","Plan Estratégico"]].map(([id,lbl])=>`<button class="tab-btn ${tabL===id?"active":""}" onclick="setTabL('${id}')">${lbl}</button>`).join("")}
+    ${[["eval","📋 Evaluación"],["visitas","🏪 Gestión Visitas"],["resumen","📊 Resumen"],["plan","🎯 Plan Estratégico"]].map(([id,lbl])=>`<button class="tab-btn ${tabL===id?"active":""}" onclick="setTabL('${id}')">${lbl}</button>`).join("")}
   </div>`;
-
   if(tabL==="eval"){
     h+=`<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px">`;
     data.ags.forEach((ag,i)=>{
@@ -388,22 +421,21 @@ function renderLider(){
         <div style="font-size:10px;opacity:.85">${ag.cod}·${t||"—"}${comp===TV?" ✓":""}</div>
       </button>`;
     });
-    h+=`</div>`;
-    h+=renderEval(data.ags[agI]);
+    h+=`</div>`+renderEval(data.ags[agI]);
   }
+  if(tabL==="visitas") h+=renderVisitas();
   if(tabL==="resumen"){
     h+=`<div class="grid3" style="margin-bottom:12px">`;
-    [["Capacidad E1",zs.e1],["Externas E2",zs.e2],["Tareas E3",zs.e3]].forEach(([lbl,avg])=>{
-      h+=`<div class="kpi"><div class="kpi-lbl">${lbl}</div><div class="kpi-val" style="color:${nv(avg).c}">${avg||"—"}</div>${mbar(avg)}</div>`;
-    });
-    h+=`</div><div style="overflow-x:auto"><table><thead><tr><th>Cód</th><th>Agencia</th><th>Admin</th><th>E1</th><th>E2</th><th>E3</th><th>IGI</th><th>Nivel</th><th>Acción prioritaria</th></tr></thead><tbody>`;
+    [["Capacidad E1",zs.e1],["Externas E2",zs.e2],["Tareas E3",zs.e3]].forEach(([lbl,avg])=>{h+=`<div class="kpi"><div class="kpi-lbl">${lbl}</div><div class="kpi-val" style="color:${nv(avg).c}">${avg||"—"}</div>${mbar(avg)}</div>`;});
+    h+=`</div><div style="overflow-x:auto"><table><thead><tr><th>Cód</th><th>Agencia</th><th>Admin</th><th>E1</th><th>E2</th><th>E3</th><th>IGI</th><th>Nivel</th><th>Visitas</th><th>Acción</th></tr></thead><tbody>`;
     data.ags.forEach((ag,i)=>{
       const{p1,p2,p3,t}=agSt(ag);
+      const nv2=data.visitas&&data.visitas[ag.cod]?data.visitas[ag.cod].length:0;
       h+=`<tr><td style="color:#888;font-size:11px">${ag.cod}</td><td><b>${ag.nom}</b></td><td style="color:#555">${ag.admin||"—"}</td>
-        ${[p1,p2,p3].map(v=>`<td>${colval(v)}</td>`).join("")}
+        ${[p1,p2,p3].map(v=>`<td>${cv(v)}</td>`).join("")}
         <td style="font-weight:500">${t||"—"}</td><td>${bdg(t)}</td>
-        <td style="font-size:11px;color:#555;max-width:140px">${ag.accion||"—"}</td>
-      </tr>`;
+        <td style="text-align:center;color:#534AB7;font-weight:500">${nv2}</td>
+        <td style="font-size:11px;color:#555;max-width:130px">${ag.accion||"—"}</td></tr>`;
     });
     h+=`</tbody></table></div>`;
   }
@@ -411,96 +443,257 @@ function renderLider(){
   document.getElementById("app").innerHTML=h;
 }
 
+// ── RENDER VISITAS ────────────────────────────────────
+function renderVisitas(){
+  const data=DB[lid];
+  const ag=data.ags[agI];
+  const visitas=getVisitas(ag.cod);
+  const totalVisitas=data.visitas?Object.values(data.visitas).reduce((a,v)=>a+v.length,0):0;
+
+  let h=`
+  <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+    <span style="font-size:13px;color:#888">Selecciona agencia:</span>
+    <select onchange="agI=parseInt(this.value);render()" style="width:auto;padding:5px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px">
+      ${data.ags.map((a,i)=>`<option value="${i}" ${i===agI?"selected":""}>${a.cod} — ${a.nom}</option>`).join("")}
+    </select>
+    <span style="font-size:12px;color:#534AB7;font-weight:500">${visitas.length} visita(s) registrada(s)</span>
+    <span style="font-size:12px;color:#888">| Total zona: ${totalVisitas}</span>
+    <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="addVisita()">+ Nueva visita</button>
+  </div>`;
+
+  if(!visitas.length){
+    h+=`<div style="text-align:center;padding:2rem;background:#fafafa;border-radius:10px;color:#888">
+      <div style="font-size:32px;margin-bottom:8px">📋</div>
+      <div style="font-size:14px;font-weight:500">Sin visitas registradas</div>
+      <div style="font-size:12px;margin-top:4px">Haz clic en "+ Nueva visita" para registrar la primera</div>
+    </div>`;
+    return h;
+  }
+
+  visitas.forEach((v,vi)=>{
+    const checks=Object.values(v.check).filter(Boolean).length;
+    const totalChecks=Object.keys(v.check).length;
+    const accPend=v.acciones.filter(a=>a.estado==="Pendiente").length;
+    const comprPend=v.compromisos.filter(c=>c.estado==="Pendiente").length;
+    const cod=ag.cod;
+
+    h+=`<div class="visita-card">
+      <div class="visita-header" onclick="toggleVisita('${cod}',${vi})">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="font-size:14px">${v.abierta?"🔽":"▶"}</span>
+          <span style="font-weight:500;color:#1a1060">Visita ${v.fecha||"sin fecha"}</span>
+          ${v.hora_ini?`<span style="font-size:11px;color:#888">${v.hora_ini}${v.hora_fin?" – "+v.hora_fin:""}</span>`:""}
+          <span style="font-size:11px;background:#EEEDFE;color:#534AB7;padding:1px 7px;border-radius:10px">✓ ${checks}/${totalChecks} checklist</span>
+          ${accPend?`<span style="font-size:11px;background:#fff8e1;color:#7c4a00;padding:1px 7px;border-radius:10px">⏳ ${accPend} acción(es) pendiente(s)</span>`:""}
+          ${comprPend?`<span style="font-size:11px;background:#ffebee;color:#8b0000;padding:1px 7px;border-radius:10px">🔴 ${comprPend} compromiso(s)</span>`:""}
+        </div>
+        <button class="btn-danger btn-sm" onclick="event.stopPropagation();delVisita('${cod}',${vi})">✕</button>
+      </div>`;
+
+    if(v.abierta){
+      h+=`<div class="visita-body">
+      <div class="grid3" style="margin-bottom:10px">
+        <div class="field"><label>Fecha de visita</label><input type="date" value="${esc(v.fecha)}" onchange="updVisita('${cod}',${vi},'fecha',this.value)"></div>
+        <div class="field"><label>Hora inicio</label><input type="time" value="${esc(v.hora_ini)}" onchange="updVisita('${cod}',${vi},'hora_ini',this.value)"></div>
+        <div class="field"><label>Hora fin</label><input type="time" value="${esc(v.hora_fin)}" onchange="updVisita('${cod}',${vi},'hora_fin',this.value)"></div>
+      </div>
+
+      <!-- ANTES -->
+      <div class="seccion">
+        <div class="sec-title">📌 ANTES — Objetivo de la visita</div>
+        <div class="field"><label>¿Qué voy a revisar / lograr en esta visita?</label>
+          <textarea rows="2" onchange="updVisita('${cod}',${vi},'objetivo',this.value)">${esc(v.objetivo)}</textarea></div>
+      </div>
+
+      <!-- DURANTE -->
+      <div class="seccion seccion-verde">
+        <div class="sec-title sec-title-verde">🔍 DURANTE — ¿Qué está pasando?</div>
+        <div class="grid2">
+          <div class="field"><label>¿Qué está pasando? (datos rápidos)</label>
+            <textarea rows="3" onchange="updVisita('${cod}',${vi},'que_pasa',this.value)">${esc(v.que_pasa)}</textarea></div>
+          <div class="field"><label>¿Cuál es el desafío?</label>
+            <textarea rows="3" onchange="updVisita('${cod}',${vi},'desafio',this.value)">${esc(v.desafio)}</textarea></div>
+        </div>
+
+        <!-- CHECKLIST -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:8px">
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Comercial</div>
+            ${[["visito","Visité al menos 1 joyería"],["reviso_resultados","Revisé resultados con el equipo"],["ejecuto_activacion","Se ejecutó al menos 1 activación"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Equipo</div>
+            ${[["feedback","Di feedback puntual"],["reconocio","Reconocí al menos 1 colaborador"],["detecto_brecha","Detecté una brecha concreta"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;color:#0F6E56;margin-bottom:4px">Ejecución</div>
+            ${[["dejo_tareas","Dejé tareas escritas"],["pidio_evidencia","Pedí evidencia"],["seguimiento_ant","Hice seguimiento a compromisos anteriores"]].map(([k,lbl])=>`<div class="check-item"><input type="checkbox" ${v.check[k]?"checked":""} onchange="updCheck('${cod}',${vi},'${k}',this.checked)"><span>${lbl}</span></div>`).join("")}
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:10px"><label>✅ Decisión tomada</label>
+          <textarea rows="2" onchange="updVisita('${cod}',${vi},'decision',this.value)">${esc(v.decision)}</textarea></div>
+      </div>
+
+      <!-- ACCIONES ACORDADAS -->
+      <div class="seccion seccion-naranja">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="sec-title sec-title-naranja" style="margin:0">📋 Acciones acordadas</div>
+          <button class="btn btn-sm" style="background:#85370D;color:#fff" onclick="addAccionV('${cod}',${vi})">+ Agregar</button>
+        </div>
+        <table><thead><tr><th>Tema</th><th>Decisión</th><th>Acción</th><th>Responsable</th><th>Fecha</th><th>Estado</th><th></th></tr></thead><tbody>`;
+      v.acciones.forEach((a,ai)=>{
+        const colE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
+        h+=`<tr>
+          <td><input type="text" value="${esc(a.tema)}" placeholder="Tema..." onchange="updAccionV('${cod}',${vi},${ai},'tema',this.value)"></td>
+          <td><input type="text" value="${esc(a.decision)}" placeholder="Decisión..." onchange="updAccionV('${cod}',${vi},${ai},'decision',this.value)"></td>
+          <td><input type="text" value="${esc(a.accion)}" placeholder="Acción..." onchange="updAccionV('${cod}',${vi},${ai},'accion',this.value)"></td>
+          <td><input type="text" value="${esc(a.responsable)}" placeholder="Responsable..." onchange="updAccionV('${cod}',${vi},${ai},'responsable',this.value)"></td>
+          <td><input type="date" value="${esc(a.fecha)}" onchange="updAccionV('${cod}',${vi},${ai},'fecha',this.value)"></td>
+          <td><select style="background:${colE[a.estado]||"#fff"}" onchange="updAccionV('${cod}',${vi},${ai},'estado',this.value)">
+            ${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${a.estado===s?" selected":""}>${s}</option>`).join("")}
+          </select></td>
+          <td><button class="btn-danger" onclick="delAccionV('${cod}',${vi},${ai})">✕</button></td>
+        </tr>`;
+      });
+      h+=`</tbody></table></div>
+
+      <!-- COMPROMISOS -->
+      <div class="seccion seccion-amarilla">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="sec-title sec-title-amarilla" style="margin:0">🤝 Tablero de compromisos</div>
+          <button class="btn btn-sm" style="background:#7c4a00;color:#fff" onclick="addCompr('${cod}',${vi})">+ Agregar</button>
+        </div>`;
+      v.compromisos.forEach((c,ci)=>{
+        const colC={"Pendiente":"#fff8e1","En proceso":"#e3f2fd","Hecho":"#e8f5e9"};
+        h+=`<div class="compromiso-row">
+          <input type="text" value="${esc(c.compromiso)}" placeholder="Compromiso..." onchange="updCompr('${cod}',${vi},${ci},'compromiso',this.value)">
+          <input type="text" value="${esc(c.accion)}" placeholder="Acción definida..." onchange="updCompr('${cod}',${vi},${ci},'accion',this.value)">
+          <div style="display:flex;gap:4px;align-items:center">
+            <select style="flex:1;background:${colC[c.estado]||"#fff"}" onchange="updCompr('${cod}',${vi},${ci},'estado',this.value)">
+              ${["Pendiente","En proceso","Hecho"].map(s=>`<option${c.estado===s?" selected":""}>${s}</option>`).join("")}
+            </select>
+            <button class="btn-danger" onclick="delCompr('${cod}',${vi},${ci})">✕</button>
+          </div>
+        </div>`;
+      });
+      h+=`</div>
+
+      <!-- REFLEXION -->
+      <div class="seccion">
+        <div class="sec-title">💭 Reflexión de la visita</div>
+        <div class="field"><label>Reflexión (1–2 líneas)</label>
+          <textarea rows="2" onchange="updVisita('${cod}',${vi},'reflexion',this.value)">${esc(v.reflexion)}</textarea></div>
+      </div>
+
+      <!-- RITUAL SEGUIMIENTO -->
+      <div class="ritual-box">
+        <div style="font-size:13px;font-weight:600;color:#7c4a00;margin-bottom:8px">⏱ Ritual de seguimiento (15 min)</div>
+        <div class="field"><label>Semana</label><input type="text" value="${esc(v.ritual.semana)}" placeholder="Ej: 18 al 21 de febrero 2026" onchange="updRitual('${cod}',${vi},'semana',this.value)"></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          ${[[1,"¿Qué dijimos que íbamos a hacer?","dijimos"],[2,"¿Qué sí se hizo?","se_hizo"],[3,"¿Qué aprendimos?","aprendimos"]].map(([n,lbl,k])=>`
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <div class="ritual-num">${n}</div>
+            <div style="flex:1"><label>${lbl}</label>
+              <textarea rows="2" onchange="updRitual('${cod}',${vi},'${k}',this.value)">${esc(v.ritual[k])}</textarea></div>
+          </div>`).join("")}
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <div style="width:24px;flex-shrink:0"></div>
+            <div style="flex:1"><label style="font-weight:600;color:#7c4a00">📌 Acuerdos para la próxima semana</label>
+              <textarea rows="2" onchange="updRitual('${cod}',${vi},'acuerdos',this.value)">${esc(v.ritual.acuerdos)}</textarea></div>
+          </div>
+        </div>
+      </div>
+
+      </div>`; // cierre visita-body
+    }
+    h+=`</div>`; // cierre visita-card
+  });
+  return h;
+}
+
+// ── RENDER EVAL IGI ───────────────────────────────────
 function renderEval(ag){
-  if(!ag) return "";
+  if(!ag)return"";
   const{p1,p2,p3,t,nv:n}=agSt(ag);
   let h=`<div class="grid3" style="margin-bottom:12px">
-    <div class="field"><label>Administrador</label><input type="text" value="${ag.admin}" onchange="updAg('admin',this.value)"></div>
-    <div class="field"><label>Fecha de visita</label><input type="date" value="${ag.fecha}" onchange="updAg('fecha',this.value)"></div>
+    <div class="field"><label>Administrador</label><input type="text" value="${esc(ag.admin)}" onchange="updAg('admin',this.value)"></div>
+    <div class="field"><label>Fecha de visita</label><input type="date" value="${esc(ag.fecha)}" onchange="updAg('fecha',this.value)"></div>
     <div id="igi-box" style="background:${n.bg};border:1px solid ${n.c}40;border-radius:10px;padding:10px;text-align:center">
       <div style="font-size:11px;color:${n.c}">IGI Total</div>
       <div style="font-size:26px;font-weight:500;color:${n.c}">${t||"—"}</div>
       <div style="font-size:13px">${n.s} ${n.l}</div>
     </div>
   </div>`;
-
-  // Eje 1
-  h+=`<div class="eje-hdr" style="color:#534AB7;border-color:#e0dff8"><span>Eje 1 — Capacidad Interna (40%)</span>${colval(p1)}</div><div class="eje-grid">`;
+  h+=`<div class="eje-hdr" style="color:#534AB7;border-color:#e0dff8"><span>Eje 1 — Capacidad Interna (40%)</span>${cv(p1)}</div><div class="eje-grid">`;
   EJE1.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f9f9ff"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje1[i]||""}" onchange="updEje('eje1',${i},parseFloat(this.value)||0)"></div>`);
-  h+=`</div>`;
-
-  // Eje 2
-  h+=`<div class="eje-hdr" style="color:#0F6E56;border-color:#9FE1CB"><span>Eje 2 — Condiciones Externas (25%)</span>${colval(p2)}</div><div class="eje-grid">`;
+  h+=`</div><div class="eje-hdr" style="color:#0F6E56;border-color:#9FE1CB"><span>Eje 2 — Condiciones Externas (25%)</span>${cv(p2)}</div><div class="eje-grid">`;
   EJE2.forEach((v,i)=>h+=`<div class="eje-row" style="background:#f6fff9"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje2[i]||""}" onchange="updEje('eje2',${i},parseFloat(this.value)||0)"></div>`);
-  h+=`</div>`;
-
-  // Eje 3
-  h+=`<div class="eje-hdr" style="color:#85370D;border-color:#F5C4B3"><span>Eje 3 — Tareas Operativas (35%)</span>${colval(p3)}</div>`;
+  h+=`</div><div class="eje-hdr" style="color:#85370D;border-color:#F5C4B3"><span>Eje 3 — Tareas Operativas (35%)</span>${cv(p3)}</div>`;
   let idx=0;
   EJE3G.forEach(g=>{
     h+=`<div style="font-size:11px;color:#85370D;background:#fff5f0;padding:3px 8px;border-radius:5px;margin:6px 0 4px;font-weight:500">${g.g}</div><div class="eje-grid">`;
     g.v.forEach(v=>{h+=`<div class="eje-row" style="background:#fff8f5"><span style="flex:1">${v}</span><input type="number" min="1" max="5" step="0.1" value="${ag.eje3[idx]||""}" onchange="updEje('eje3',${idx},parseFloat(this.value)||0)"></div>`;idx++;});
     h+=`</div>`;
   });
-
   h+=`<div class="grid2" style="margin-top:8px">
-    <div class="field"><label>Acción prioritaria</label><input type="text" value="${ag.accion}" placeholder="Acción más urgente..." onchange="updAg('accion',this.value)"></div>
-    <div class="field"><label>Estrategia</label><input type="text" value="${ag.estrategia}" placeholder="Estrategia definida..." onchange="updAg('estrategia',this.value)"></div>
+    <div class="field"><label>Acción prioritaria</label><input type="text" value="${esc(ag.accion)}" placeholder="Acción más urgente..." onchange="updAg('accion',this.value)"></div>
+    <div class="field"><label>Estrategia</label><input type="text" value="${esc(ag.estrategia)}" placeholder="Estrategia definida..." onchange="updAg('estrategia',this.value)"></div>
   </div>
-  <div class="field"><label>Observaciones de la visita</label><textarea rows="2" placeholder="Hallazgos, contexto, notas..." onchange="updAg('obs',this.value)">${ag.obs}</textarea></div>`;
+  <div class="field"><label>Observaciones</label><textarea rows="2" placeholder="Hallazgos, contexto, notas..." onchange="updAg('obs',this.value)">${esc(ag.obs)}</textarea></div>`;
   return h;
 }
 
 function renderPlanH(){
   const plan=DB[lid]?.plan||[],obs=DB[lid]?.obs||"";
   const colE={"Pendiente":"#fff8e1","En progreso":"#e3f2fd","Completado":"#e8f5e9","Bloqueado":"#ffebee"};
-  let h=`<div class="field"><label style="font-size:13px;font-weight:500;color:#444">Observaciones generales de la zona</label>
-    <textarea rows="3" placeholder="Contexto de la zona, situación actual..." onchange="updZona('obs',this.value)">${obs}</textarea></div>
+  let h=`<div class="field"><label style="font-size:13px;font-weight:500">Observaciones generales de la zona</label>
+    <textarea rows="3" onchange="updZona('obs',this.value)">${obs}</textarea></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
     <span style="font-size:13px;font-weight:500">Acciones estratégicas</span>
     <button class="btn btn-p btn-sm" onclick="addPlan()">+ Agregar</button>
   </div>`;
   if(!plan.length)h+=`<div style="text-align:center;padding:1.5rem;background:#fafafa;border-radius:8px;color:#888">Sin acciones registradas.</div>`;
-  plan.forEach((item,i)=>{h+=`<div class="plan-item">
-    <div class="grid3" style="margin-bottom:8px">
-      <div class="field"><label>Objetivo</label><input type="text" value="${item.obj}" onchange="updPlan(${i},'obj',this.value)"></div>
-      <div class="field"><label>Acción concreta</label><input type="text" value="${item.accion}" onchange="updPlan(${i},'accion',this.value)"></div>
-      <div class="field"><label>Responsable</label><input type="text" value="${item.resp}" onchange="updPlan(${i},'resp',this.value)"></div>
+  plan.forEach((item,i)=>{
+    h+=`<div class="plan-item"><div class="grid3" style="margin-bottom:8px">
+      <div class="field"><label>Objetivo</label><input type="text" value="${esc(item.obj)}" onchange="updPlan(${i},'obj',this.value)"></div>
+      <div class="field"><label>Acción concreta</label><input type="text" value="${esc(item.accion)}" onchange="updPlan(${i},'accion',this.value)"></div>
+      <div class="field"><label>Responsable</label><input type="text" value="${esc(item.resp)}" onchange="updPlan(${i},'resp',this.value)"></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end">
-      <div class="field"><label>Fecha límite</label><input type="date" value="${item.fecha}" onchange="updPlan(${i},'fecha',this.value)"></div>
-      <div class="field"><label id="av${i}">Avance: ${item.av}%</label>
-        <input type="range" min="0" max="100" step="5" value="${item.av}" oninput="updPlan(${i},'av',this.value)">
-        <div style="height:4px;background:#eee;border-radius:2px;margin-top:2px;overflow:hidden"><div id="avbar${i}" style="height:4px;width:${item.av}%;background:${item.av>=80?"#1a5e20":item.av>=40?"#f57f17":"#c62828"};border-radius:2px"></div></div>
+      <div class="field"><label>Fecha límite</label><input type="date" value="${esc(item.fecha)}" onchange="updPlan(${i},'fecha',this.value)"></div>
+      <div class="field"><label>Avance: ${item.av}%</label>
+        <input type="range" min="0" max="100" step="5" value="${item.av}" oninput="updPlan(${i},'av',this.value);this.previousElementSibling.textContent='Avance: '+this.value+'%'">
+        <div style="height:4px;background:#eee;border-radius:2px;margin-top:2px;overflow:hidden"><div style="height:4px;width:${item.av}%;background:${item.av>=80?"#1a5e20":item.av>=40?"#f57f17":"#c62828"};border-radius:2px"></div></div>
       </div>
       <div class="field"><label>Estado</label>
         <select style="background:${colE[item.estado]||"#fff"}" onchange="updPlan(${i},'estado',this.value)">
           ${["Pendiente","En progreso","Completado","Bloqueado"].map(s=>`<option${item.estado===s?" selected":""}>${s}</option>`).join("")}
         </select></div>
       <button class="btn-danger" onclick="delPlan(${i})">✕</button>
-    </div>
-  </div>`;});
+    </div></div>`;
+  });
   return h;
 }
 
 function renderIGIBox(){
   const ag=DB[lid]?.ags[agI];if(!ag)return;
-  const{t,nv:n}=agSt(ag);
-  const box=document.getElementById("igi-box");if(!box)return;
+  const{t,nv:n}=agSt(ag);const box=document.getElementById("igi-box");if(!box)return;
   box.style.background=n.bg;box.style.borderColor=n.c+"40";
   box.innerHTML=`<div style="font-size:11px;color:${n.c}">IGI Total</div><div style="font-size:26px;font-weight:500;color:${n.c}">${t||"—"}</div><div style="font-size:13px">${n.s} ${n.l}</div>`;
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  DIAGNÓSTICO IA
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// DIAGNÓSTICO IA
+// ══════════════════════════════════════════════════════
 async function openDiag(id){
   const L=LIDERES.find(l=>l.id===id);const data=DB[id];
   document.getElementById("modal-sub").textContent=`${L.z} · ${L.n}`;
-  document.getElementById("modal-body").textContent="⏳ Analizando datos...";
+  document.getElementById("modal-body").textContent="⏳ Analizando datos de la zona...";
   document.getElementById("modal-diag").style.display="flex";
   const res=data.ags.map(ag=>{const{p1,p2,p3,t,nv:n}=agSt(ag);return`[${ag.cod}] ${ag.nom}: IGI=${t} Nivel=${n.l} E1=${p1} E2=${p2} E3=${p3}${ag.accion?" | Acción: "+ag.accion:""}`;}).join("\n");
-  const prompt=`Eres consultor experto en redes de joyerías/casas de empeño. Analiza los IGI de ${L.z}, liderada por ${L.n} en Ecuador:\n\n${res}\n\nEjes: Capacidad Interna 40%, Externas 25%, Tareas 35%. Escala 1–5. Débil<2.5, Media 2.5–4, Fuerte≥4.\n\n1. RESUMEN EJECUTIVO\n2. FORTALEZAS (máx 3)\n3. BRECHAS CRÍTICAS (con códigos de agencia)\n4. RECOMENDACIONES (3 acciones con plazo)\n5. AGENCIAS PRIORITARIAS\n6. META IGI sugerida\n\nSé directo y usa los códigos.`;
+  const totalVisitas=data.visitas?Object.values(data.visitas).reduce((a,v)=>a+v.length,0):0;
+  const prompt=`Eres consultor experto en redes de joyerías/casas de empeño. Analiza los IGI de ${L.z}, liderada por ${L.n} en Ecuador. Total visitas registradas: ${totalVisitas}.\n\n${res}\n\nEjes: Capacidad Interna 40%, Externas 25%, Tareas 35%. Escala 1–5. Débil<2.5, Media 2.5–4, Fuerte≥4.\n\n1. RESUMEN EJECUTIVO\n2. FORTALEZAS (máx 3)\n3. BRECHAS CRÍTICAS (con códigos de agencia)\n4. RECOMENDACIONES (3 acciones con plazo)\n5. AGENCIAS PRIORITARIAS\n6. META IGI sugerida\n\nSé directo y usa los códigos.`;
   try{
     const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1200,messages:[{role:"user",content:prompt}]})});
     const j=await r.json();
@@ -508,17 +701,17 @@ async function openDiag(id){
   }catch{document.getElementById("modal-body").textContent="Error de conexión.";}
 }
 
-// ══════════════════════════════════════════════════════════════════
-//  INICIO
-// ══════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+// INICIO
+// ══════════════════════════════════════════════════════
 async function init(){
   DB=initDB();
   document.getElementById("btn-dir").classList.add("active");
-  renderDir(); // render inmediato con datos vacíos
-  await dbLoad(); // luego carga datos reales
+  renderDir();
+  await dbLoad();
   renderDir();
 }
 init();
 </script>
-
-<!--
+</body>
+</html>
