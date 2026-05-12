@@ -226,8 +226,7 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Enter") pinEnter();
   if(e.key==="Backspace") pinClear();
 });
-const JSONBIN_API_KEY = "$2a$10$KGYkOVGllAacjYcGcQTW/uxeTJinwORe5bRNVGe6IMaN4z8ED2Xnu";
-const JSONBIN_BIN_ID  = "6a010195c0954111d80497df";
+const FIREBASE_URL = "https://plataforma-igi-6feeb-default-rtdb.firebaseio.com";
 
 const LIDERES=[
   {id:1,n:"Harol Bedoya",z:"Zona Norte"},
@@ -276,16 +275,44 @@ function mkRetro(){return{fecha:new Date().toISOString().slice(0,10),fortalezas:
 function initDB(){const d={};LIDERES.forEach(l=>{d[l.id]=mkZona(l.id);});return d;}
 
 // ══ JSONBIN ══
-function cfgOk(){return JSONBIN_API_KEY&&!JSONBIN_API_KEY.includes("PEGA")&&JSONBIN_BIN_ID&&!JSONBIN_BIN_ID.includes("PEGA");}
+function cfgOk(){return true;}
+
 async function dbLoad(){
-  if(!cfgOk()){try{const s=localStorage.getItem("igi_db");if(s)DB=JSON.parse(s);}catch{}LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});return;}
   setSy("pend");
-  try{const r=await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`,{headers:{"X-Master-Key":JSONBIN_API_KEY,"X-Bin-Meta":"false"}});const j=await r.json();if(j&&typeof j==="object"){DB=j;LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});}setSy("ok");}catch{setSy("err");}
+  try{
+    const r=await fetch(`${FIREBASE_URL}/igi.json`);
+    const j=await r.json();
+    if(j&&typeof j==="object"){
+      DB=j;
+      LIDERES.forEach(l=>{if(!DB[l.id])DB[l.id]=mkZona(l.id);});
+    }
+    setSy("ok");
+  }catch(e){console.error("dbLoad error:",e);setSy("err");}
 }
+
 async function dbSave(){
-  if(!cfgOk()){try{localStorage.setItem("igi_db",JSON.stringify(DB));}catch{}return;}
-  setSy("pend");clearTimeout(dbSaveTimer);
-  dbSaveTimer=setTimeout(async()=>{try{await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,{method:"PUT",headers:{"Content-Type":"application/json","X-Master-Key":JSONBIN_API_KEY},body:JSON.stringify(DB)});setSy("ok");}catch{setSy("err");}},1500);
+  setSy("pend");
+  clearTimeout(dbSaveTimer);
+  dbSaveTimer=setTimeout(async()=>{
+    try{
+      // Guarda solo la zona activa para no sobreescribir otras
+      const id=usuarioActivo?.rol==="director"?"all":usuarioActivo?.id;
+      if(usuarioActivo?.rol==="lider"){
+        await fetch(`${FIREBASE_URL}/igi/${lid}.json`,{
+          method:"PUT",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(DB[lid])
+        });
+      } else {
+        await fetch(`${FIREBASE_URL}/igi.json`,{
+          method:"PUT",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(DB)
+        });
+      }
+      setSy("ok");
+    }catch(e){console.error("dbSave error:",e);setSy("err");}
+  },1500);
 }
 
 // ══ CÁLCULOS ══
@@ -318,16 +345,18 @@ function esc(s){return(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace
 function semFill(f,m,d,t){let h=`<div class="semaforo-bar"><div style="flex:${f||0};background:#e8f5e9"></div><div style="flex:${m||0};background:#fff8e1"></div><div style="flex:${d||0};background:#ffebee"></div>`;if(f+m+d<t)h+=`<div style="flex:${t-f-m-d};background:#f0f0f0"></div>`;h+=`</div>`;return h;}
 
 // ══ NAVEGACIÓN ══
-function toggleMenu(){menuOpen=!menuOpen;document.getElementById("nav-btns").style.display=menuOpen?"flex":"none";}
-async function goVista(v,id){
-  vista=v;if(id){lid=id;agI=0;tabL="eval";}
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
-  document.getElementById(v==="director"?"btn-dir":"btn-l"+lid)?.classList.add("active");
-  await dbLoad();render();
-  if(window.innerWidth<600){menuOpen=false;document.getElementById("nav-btns").style.display="none";}
+function setTabD(t){
+  tabD=t;
+  document.querySelectorAll("#nav-dir-tabs .nav-btn").forEach(b=>b.classList.remove("active"));
+  event?.target?.classList.add("active");
+  render();
 }
-function setTabD(t){tabD=t;render();}
-function setTabL(t){tabL=t;render();}
+function setTabL(t){
+  tabL=t;
+  document.querySelectorAll("#nav-lid-tabs .nav-btn").forEach(b=>b.classList.remove("active"));
+  event?.target?.classList.add("active");
+  render();
+}
 function setAg(i){agI=i;render();}
 
 // ══ MUTACIONES IGI ══
@@ -904,8 +933,7 @@ function verHistorialRetro(lid_r){
 // ══════════════════════════════════════════════════════
 async function init(){
   DB=initDB();
-  document.getElementById("btn-dir").classList.add("active");
-  renderDir();await dbLoad();renderDir();
+  // No cargamos nada hasta que el usuario haga login
 }
 init();
 </script>
